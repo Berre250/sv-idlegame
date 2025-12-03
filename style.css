@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at left, #120000, #000),
+              radial-gradient(circle at right, #120000, #000);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid red;
+}
+
+.logo_box img {
+  height: 45px;
+  width: auto;
+  filter: drop-shadow(0 0 10px red);
+}
+
+.icon {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px 50px;
+}
+
+.hero h1 {
+  font-size: 42px;
+}
+
+.hero span {
+  color: red;
+  text-shadow: 0 0 15px red;
+}
+
+/* MAIN CARD */
+.main_card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 80px 20px;
+  border-top: 1px solid red;
+  border-bottom: 1px solid red;
+}
+
+.card_image img {
+  width: 300px;
+  filter: drop-shadow(0 0 20px red);
+}
+
+.card_content {
+  max-width: 320px;
+  text-align: center;
+}
+
+.card_content p {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* BOUTON */
+#playBtn {
+  margin-top: 25px;
+  padding: 12px 35px;
+  background: linear-gradient(90deg, darkred, red);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 15px red;
+  transition: 0.3s;
+}
+
+#playBtn:hover {
+  box-shadow: 0 0 30px red;
+  transform: scale(1.1);
+}
+
+/* STORY */
+.story {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 100px 20px;
+}
+
+/* TROU NOIR */
+.black_hole {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, red 10%, black 70%);
+  box-shadow: 0 0 40px red;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 20px red;
+  }
+  to {
+    transform: scale(1.15);
+    box-shadow: 0 0 60px red;
+  }
+}
+
+.story_text {
+  max-width: 320px;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.hero_image img {
+  width: 200px;
+  filter: drop-shadow(0 0 20px red);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .main_card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .story {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
