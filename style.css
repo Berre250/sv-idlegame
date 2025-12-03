@@ -6,8 +6,7 @@
 }
 
 body {
-  background: radial-gradient(circle at left, #120000, #000),
-              radial-gradient(circle at right, #120000, #000);
+  background: black;
   color: white;
   overflow-x: hidden;
 }
@@ -145,4 +144,164 @@ body {
     flex-direction: column;
     gap: 40px;
   }
+}
+
+/*  partie black hole   */
+
+#blackhole {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.centerHover {
+  width: 255px;
+  height: 255px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -128px;
+  margin-left: -128px;
+  z-index: 2;
+  cursor: pointer;
+  line-height: 255px;
+  text-align: center;
+  transition: all 500ms;
+}
+
+.centerHover.open {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.centerHover:hover span {
+  color: #ddd;
+}
+
+.centerHover:hover span:before {
+  background-color: #ddd;
+}
+
+.centerHover:hover span:after {
+  background-color: #ddd;
+}
+
+.centerHover span {
+  color: #666;
+  font-family: serif;
+  font-size: 18px;
+  position: relative;
+  transition: all 500ms;
+}
+
+.centerHover span:before {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 16px;
+  margin-right: 12px;
+  margin-bottom: 4px;
+  background-color: #666;
+  transition: all 500ms;
+}
+
+.centerHover span:after {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 16px;
+  margin-left: 12px;
+  margin-bottom: 4px;
+  background-color: #666;
+  transition: all 500ms;
+}
+
+canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+#blackhole {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.centerHover {
+  width: 255px;
+  height: 255px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -128px;
+  margin-left: -128px;
+  z-index: 2;
+  cursor: pointer;
+  line-height: 255px;
+  text-align: center;
+  transition: all 500ms;
+}
+
+.centerHover.open {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.centerHover:hover span {
+  color: #ddd;
+}
+
+.centerHover:hover span:before {
+  background-color: #ddd;
+}
+
+.centerHover:hover span:after {
+  background-color: #ddd;
+}
+
+.centerHover span {
+  color: #666;
+  font-family: serif;
+  font-size: 18px;
+  position: relative;
+  transition: all 500ms;
+}
+
+.centerHover span:before {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 16px;
+  margin-right: 12px;
+  margin-bottom: 4px;
+  background-color: #666;
+  transition: all 500ms;
+}
+
+.centerHover span:after {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 16px;
+  margin-left: 12px;
+  margin-bottom: 4px;
+  background-color: #666;
+  transition: all 500ms;
+}
+
+canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: auto;
 }
