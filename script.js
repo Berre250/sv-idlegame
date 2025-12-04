@@ -9,3 +9,20 @@ playBtn.addEventListener("click", () => {
     alert("Game loading...");
   }, 400);
 });
+
+const navbar = document.querySelector(".navbar");
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY) {
+    // scroll vers le bas → cacher
+    navbar.classList.add("hide");
+  } else {
+    // scroll vers le haut → afficher
+    navbar.classList.remove("hide");
+  }
+
+  lastScrollY = currentScrollY;
+});

@@ -6,8 +6,7 @@
 }
 
 body {
-  background: radial-gradient(circle at left, #120000, #000),
-              radial-gradient(circle at right, #120000, #000);
+  background: black;
   color: white;
   overflow-x: hidden;
 }
@@ -18,18 +17,27 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
+  background: #000;
   border-bottom: 1px solid red;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: transform 0.4s ease;
 }
 
-.logo_box img {
-  height: 45px;
+.navbar.hide {
+  transform: translateY(-100%);
+}
+body {
+  padding-top: 90px;
+}
+.navbar img {
+  height: 50px;
   width: auto;
-  filter: drop-shadow(0 0 10px red);
-}
-
-.icon {
-  margin-left: 20px;
-  cursor: pointer;
+  object-fit: contain;
 }
 
 /* HERO */
@@ -50,46 +58,61 @@ body {
 /* MAIN CARD */
 .main_card {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch; /* étire sur toute la hauteur */
+  justify-content: space-between;
   gap: 60px;
-  padding: 80px 20px;
+  padding: 0 120px;
+  height: 420px; /* hauteur entre les 2 lignes rouges */
   border-top: 1px solid red;
   border-bottom: 1px solid red;
 }
 
+.card_image {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .card_image img {
-  width: 300px;
-  filter: drop-shadow(0 0 20px red);
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .card_content {
-  max-width: 320px;
-  text-align: center;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  margin-left: -80px;
+  text-align: left;
 }
 
 .card_content p {
-  font-size: 18px;
+  font-size: 30px;
   line-height: 1.4;
 }
 
 /* BOUTON */
 #playBtn {
-  margin-top: 25px;
-  padding: 12px 35px;
+  margin-top: 35px;
+  padding: 18px 55px;
   background: linear-gradient(90deg, darkred, red);
   border: none;
-  border-radius: 25px;
+  border-radius: 35px;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 0 15px red;
+  box-shadow: 0 0 20px red;
   transition: 0.3s;
+  align-self: flex-start;
 }
 
 #playBtn:hover {
-  box-shadow: 0 0 30px red;
-  transform: scale(1.1);
+  box-shadow: 0 0 35px red;
+  transform: scale(1.12);
 }
 
 /* STORY */
