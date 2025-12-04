@@ -10,11 +10,17 @@ playBtn.addEventListener("click", () => {
   }, 400);
 });
 function blackhole(element) {
+  console.log("Blackhole initialized");
+
   const container = document.querySelector(element);
   const h = container.offsetHeight;
   const w = container.offsetWidth;
+  console.log("Container size:", w, h);
+
   const cw = w;
   const ch = h;
+  console.log("Container dimensions:", cw, ch);
+
   const maxorbit = 255; // distance from center
   const centery = ch / 2;
   const centerx = cw / 2;
@@ -29,6 +35,8 @@ function blackhole(element) {
 
   // Create canvas
   const canvas = document.createElement("canvas");
+  console.log("Canvas created:", canvas);
+
   canvas.width = cw;
   canvas.height = ch;
   container.appendChild(canvas);
@@ -232,4 +240,22 @@ function blackhole(element) {
 // Initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   blackhole("#blackhole");
+});
+
+// partie header
+let lastScroll = 0;
+const header = document.querySelector("navbar");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll) {
+    // Scroll vers le bas → cacher
+    header.classList.add("hide");
+  } else {
+    // Scroll vers le haut → montrer
+    header.classList.remove("hide");
+  }
+
+  lastScroll = currentScroll;
 });
