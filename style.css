@@ -19,16 +19,25 @@ body {
   padding: 20px 40px;
   background: #000;
   border-bottom: 1px solid red;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: transform 0.4s ease;
 }
 
-.logo_box img {
-  height: 45px;
+.navbar.hide {
+  transform: translateY(-100%);
+}
+body {
+  padding-top: 90px;
+}
+.navbar img {
+  height: 50px;
   width: auto;
-}
-
-.icon {
-  margin-left: 20px;
-  cursor: pointer;
+  object-fit: contain;
 }
 
 /* HERO */
