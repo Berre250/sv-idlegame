@@ -13,12 +13,123 @@
       </div>
       <div class="nav_icons">
         <span class="icon">🔒</span>
-        <span class="icon">☰</span>
+        <span class="icon menu_icon" id="menuIcon">☰</span>
       </div>
     </header>
 
+    <!-- MENU OVERLAY -->
+    <div class="menu_overlay" id="menuOverlay">
+      <div class="menu_panel">
+        <div class="menu_header">
+          <span class="menu_title">menu</span>
+          <span class="menu_close" id="menuClose">✕</span>
+        </div>
+        <div class="menu_buttons">
+          <button class="menu_button">Team</button>
+          <button class="menu_button">About us</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT US SECTION -->
+    <section class="about_section" id="aboutSection">
+      <div class="about_container">
+        <h2 class="about_title">About us</h2>
+        <p class="about_intro">
+          Developers and graphic designers specialized in video games, they
+          created the idle game by drawing inspiration from the superhero
+          universe to build smooth and engaging gameplay.
+        </p>
+
+        <div class="team_cards">
+          <!-- Geoffrey Card -->
+          <div class="team_card">
+            <div class="team_card_frame">
+              <div class="team_image">
+                <img src="pictures/2.jpg" alt="Geoffrey" />
+              </div>
+              <div class="team_info">
+                <h3 class="team_name">Geoffrey</h3>
+                <p class="team_title">Game Logic & Visual Designer</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hamza Card -->
+          <div class="team_card">
+            <div class="team_card_frame">
+              <div class="team_image">
+                <img src="pictures/1.jpg" alt="Hamza" />
+              </div>
+              <div class="team_info">
+                <h3 class="team_name">Hamza</h3>
+                <p class="team_title">Gameplay Developer & UI Designer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Credits Section -->
+        <div class="credits_section">
+          <div class="credits_item">
+            <h3 class="credits_title">Game Design & Development</h3>
+            <p class="credits_text">
+              Designed in Figma • Built with HTML, CSS & JavaScript
+            </p>
+          </div>
+
+          <div class="credits_item">
+            <h3 class="credits_title">Special Thanks</h3>
+            <p class="credits_text">
+              To all our supporters and the incremental games community
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer in About Section -->
+      <footer class="footer">
+        <div class="footer_content">
+          <!-- Colonne de gauche -->
+          <div class="footer_left">
+            <p class="footer_section_title">Suivez-nous sur</p>
+            <div class="social_icons">
+              <img
+                src="pictures/icons-ig.jpeg"
+                alt="Social media icons"
+                class="social_icons_image"
+              />
+            </div>
+
+            <p class="footer_section_title footer_contact_title">
+              Contactez-nous
+            </p>
+            <div class="contact_info">
+              <p>interstellar@idlegame.com</p>
+              <p>+33 777-777777</p>
+            </div>
+          </div>
+
+          <!-- Séparateur vertical -->
+          <div class="footer_separator"></div>
+
+          <!-- Colonne de droite -->
+          <div class="footer_right">
+            <a href="#" class="footer_link">Conditions d'utilisation</a>
+            <a href="#" class="footer_link">Politique de confidentialité</a>
+            <a href="#" class="footer_link">Guide des parents</a>
+            <a href="#" class="footer_link">Gérer les cookies</a>
+          </div>
+        </div>
+      </footer>
+    </section>
+
     <!-- HERO SECTION -->
     <section class="hero">
+      <div class="centerHover">
+        <span>ENTER</span>
+      </div>
+
       <h1>Welcome to the <span>Interstellar</span> world</h1>
     </section>
 
@@ -36,17 +147,195 @@
 
     <!-- STORY SECTION -->
     <section class="story">
-      <div class="black_hole"></div>
+      <div class="story_container">
+        <!-- Black hole à gauche -->
+        <div class="story_blackhole">
+          <img src="pictures/trou_noir.png" alt="Black hole" />
+        </div>
 
-      <p class="story_text">
-        The black hole is growing, rush towards it to destroy it and protect
-        Earth.
-      </p>
+        <!-- Texte principal en haut au centre -->
+        <p class="story_main_text">
+          The <span class="highlight">black hole</span> is growing, rush towards
+          it to destroy it and protect Earth.
+        </p>
 
-      <div class="hero_image">
-        <img src="robin.png" alt="Robin hero" />
+        <!-- Texte secondaire en bas à gauche -->
+        <p class="story_sub_text">
+          Begin your quest by unlocking Robin, your first hero.
+        </p>
+
+        <!-- Image de Robin à droite (bas à droite) -->
+        <div class="story_hero_image">
+          <img src="pictures/robin.jpeg" alt="Robin hero" />
+        </div>
       </div>
     </section>
+
+    <!-- HEROES UNLOCK SECTION -->
+    <section class="heroes_section">
+      <!-- Top info bar -->
+      <div class="heroes_top_bar">
+        <p class="heroes_info_text">
+          With cosmic energy, you could unlock heroes to help you multiply your
+          ability to make more clicks in real time.
+        </p>
+        <div class="energy_display">
+          <div class="energy_text">
+            <div>Energie cosmique : <span id="energyValue">467</span></div>
+            <div>9 clic / seconde</div>
+          </div>
+          <div class="energy_icon">
+            <img src="pictures/energy_icon.png" alt="Energy icon" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <div class="heroes_main_content">
+        <!-- Hero cards on the left -->
+        <div class="heroes_cards">
+          <!-- Iron-Man Card -->
+          <div class="hero_card hero_card_blue">
+            <div class="hero_card_content">
+              <div class="hero_icon">
+                <img src="pictures/ironman_icon.png" alt="Iron-Man" />
+              </div>
+              <div class="hero_name">Iron-Man</div>
+              <button class="hero_buy_btn">
+                BUY <span class="hero_price">22100</span>
+                <img
+                  src="pictures/energy_icon.png"
+                  alt="Energy"
+                  class="price_icon"
+                />
+              </button>
+            </div>
+          </div>
+
+          <!-- Bumblebee Card -->
+          <div class="hero_card hero_card_red">
+            <div class="hero_card_content">
+              <div class="hero_icon">
+                <img src="pictures/bumblebee_icon.png" alt="Bumblebee" />
+              </div>
+              <div class="hero_name">Bumblebee</div>
+              <button class="hero_buy_btn unavailable">
+                UNAVAILABLE
+                <img
+                  src="pictures/energy_icon.png"
+                  alt="Energy"
+                  class="price_icon"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Explanation text on the right -->
+        <p class="heroes_explanation">
+          Some heroes cost more cosmic energy than others, and their appearance
+          on the hero banner varies depending on the energy threshold you have
+          available.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLACK HOLE GAME SECTION -->
+    <section class="blackhole_game_section">
+      <p class="blackhole_instruction">
+        Make sure to reduce the size of the black hole by playing with the
+        heroes around it.
+      </p>
+
+      <div class="blackhole_display">
+        <div class="blackhole_graphic">
+          <!-- L'image du trou noir sera ajoutée ici -->
+          <img
+            src="pictures/trou_tourne.png"
+            alt="Black hole"
+            class="blackhole_image"
+          />
+          <div class="blackhole_label">
+            <div class="blackhole_percentage">100%</div>
+            <div class="blackhole_text">TROU NOIR</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BONUS SECTION -->
+    <section class="bonus_section">
+      <div class="bonus_container">
+        <!-- Texte en haut à gauche -->
+        <p class="bonus_text">
+          Take advantage of the various point bonuses and add them for your
+          clicks.
+        </p>
+
+        <!-- Icônes de bonus en haut à droite -->
+        <div class="bonus_icons">
+          <div class="bonus_icon">
+            <div class="icon_circle">
+              <img src="pictures/bonus1.png" alt="Lightning bonus" />
+            </div>
+          </div>
+          <div class="bonus_icon">
+            <div class="icon_circle">
+              <img src="pictures/bonus2.png" alt="Star bonus" />
+            </div>
+          </div>
+          <div class="bonus_icon">
+            <div class="icon_circle">
+              <img src="pictures/bonus3.jpeg" alt="Skull bonus" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Image de personnage en bas à gauche -->
+        <div class="bonus_character">
+          <img src="pictures/optimus-prime1.jpg" alt="Character" />
+        </div>
+
+        <!-- Message final en bas au centre -->
+        <p class="bonus_final_message">Enjoy your game!</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer_content">
+        <!-- Colonne de gauche -->
+        <div class="footer_left">
+          <p class="footer_section_title">Suivez-nous sur</p>
+          <div class="social_icons">
+            <img
+              src="pictures/icons-ig.jpeg"
+              alt="Social media icons"
+              class="social_icons_image"
+            />
+          </div>
+
+          <p class="footer_section_title footer_contact_title">
+            Contactez-nous
+          </p>
+          <div class="contact_info">
+            <p>interstellar@idlegame.com</p>
+            <p>+33 777-777777</p>
+          </div>
+        </div>
+
+        <!-- Séparateur vertical -->
+        <div class="footer_separator"></div>
+
+        <!-- Colonne de droite -->
+        <div class="footer_right">
+          <a href="#" class="footer_link">Conditions d'utilisation</a>
+          <a href="#" class="footer_link">Politique de confidentialité</a>
+          <a href="#" class="footer_link">Guide des parents</a>
+          <a href="#" class="footer_link">Gérer les cookies</a>
+        </div>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>
