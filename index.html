@@ -25,45 +25,48 @@
           <span class="menu_close" id="menuClose">✕</span>
         </div>
         <div class="menu_buttons">
-          <button class="menu_button">Team</button>
-          <button class="menu_button">About us</button>
+          <button class="menu_button" id="teamButton">Team</button>
+          <button class="menu_button" id="aboutButton">About us</button>
+          <button class="menu_button" id="mainMenuButton">
+            Menu principal
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- ABOUT US SECTION -->
-    <section class="about_section" id="aboutSection">
+    <!-- TEAM SECTION -->
+    <section class="team_section" id="teamSection">
       <div class="about_container">
-        <h2 class="about_title">About us</h2>
+        <h2 class="about_title">Team</h2>
         <p class="about_intro">
-          Developers and graphic designers specialized in video games, they
-          created the idle game by drawing inspiration from the superhero
-          universe to build smooth and engaging gameplay.
+          Développeurs web spécialisés, nous avons créé ce site vitrine en
+          s'inspirant de l'univers des super-héros pour offrir une expérience
+          fluide et engageante.
         </p>
 
         <div class="team_cards">
-          <!-- Geoffrey Card -->
+          <!-- Amir Card -->
           <div class="team_card">
             <div class="team_card_frame">
               <div class="team_image">
-                <img src="pictures/2.jpg" alt="Geoffrey" />
+                <img src="pictures/2.jpg" alt="Amir" />
               </div>
               <div class="team_info">
-                <h3 class="team_name">Geoffrey</h3>
-                <p class="team_title">Game Logic & Visual Designer</p>
+                <h3 class="team_name">Amir</h3>
+                <p class="team_title">Développeur Web</p>
               </div>
             </div>
           </div>
 
-          <!-- Hamza Card -->
+          <!-- Rabah Card -->
           <div class="team_card">
             <div class="team_card_frame">
               <div class="team_image">
-                <img src="pictures/1.jpg" alt="Hamza" />
+                <img src="pictures/1.jpg" alt="Rabah" />
               </div>
               <div class="team_info">
-                <h3 class="team_name">Hamza</h3>
-                <p class="team_title">Gameplay Developer & UI Designer</p>
+                <h3 class="team_name">Rabah</h3>
+                <p class="team_title">Développeur Web</p>
               </div>
             </div>
           </div>
@@ -82,6 +85,120 @@
             <h3 class="credits_title">Special Thanks</h3>
             <p class="credits_text">
               To all our supporters and the incremental games community
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer in About Section -->
+      <footer class="footer">
+        <div class="footer_content">
+          <!-- Colonne de gauche -->
+          <div class="footer_left">
+            <p class="footer_section_title">Suivez-nous sur</p>
+            <div class="social_icons">
+              <img
+                src="pictures/icons-ig.jpeg"
+                alt="Social media icons"
+                class="social_icons_image"
+              />
+            </div>
+
+            <p class="footer_section_title footer_contact_title">
+              Contactez-nous
+            </p>
+            <div class="contact_info">
+              <p>interstellar@idlegame.com</p>
+              <p>+33 777-777777</p>
+            </div>
+          </div>
+
+          <!-- Séparateur vertical -->
+          <div class="footer_separator"></div>
+
+          <!-- Colonne de droite -->
+          <div class="footer_right">
+            <a href="#" class="footer_link">Conditions d'utilisation</a>
+            <a href="#" class="footer_link">Politique de confidentialité</a>
+            <a href="#" class="footer_link">Guide des parents</a>
+            <a href="#" class="footer_link">Gérer les cookies</a>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section class="about_section" id="aboutSection">
+      <div class="about_container">
+        <h2 class="about_title">About us</h2>
+
+        <div class="team_cards">
+          <!-- Amir Card -->
+          <div class="team_card">
+            <div class="team_card_frame">
+              <div class="team_image">
+                <img src="pictures/2.jpg" alt="Amir" />
+              </div>
+              <div class="team_info">
+                <h3 class="team_name">Amir</h3>
+                <p class="team_title">Développeur Web</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rabah Card -->
+          <div class="team_card">
+            <div class="team_card_frame">
+              <div class="team_image">
+                <img src="pictures/1.jpg" alt="Rabah" />
+              </div>
+              <div class="team_info">
+                <h3 class="team_name">Rabah</h3>
+                <p class="team_title">Développeur Web</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hamza Card -->
+          <div class="team_card">
+            <div class="team_card_frame">
+              <div class="team_image">
+                <img src="pictures/1.jpg" alt="Hamza" />
+              </div>
+              <div class="team_info">
+                <h3 class="team_name">Hamza</h3>
+                <p class="team_title">Développeur des jeux</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Geoffrey Card -->
+          <div class="team_card">
+            <div class="team_card_frame">
+              <div class="team_image">
+                <img src="pictures/2.jpg" alt="Geoffrey" />
+              </div>
+              <div class="team_info">
+                <h3 class="team_name">Geoffrey</h3>
+                <p class="team_title">Développeur des jeux</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Development Info Section -->
+        <div class="development_info">
+          <div class="dev_info_item">
+            <h3 class="dev_info_title">Le jeu</h3>
+            <p class="dev_info_text">
+              Designer par Figma • Développé par [technologie du jeu]
+            </p>
+          </div>
+
+          <div class="dev_info_item">
+            <h3 class="dev_info_title">Le site</h3>
+            <p class="dev_info_text">
+              Designer par Figma • Développé par HTML, CSS & JavaScript
             </p>
           </div>
         </div>

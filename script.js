@@ -42,32 +42,67 @@ if (menuOverlay) {
   });
 }
 
-// ===== ABOUT US BUTTON =====
-const aboutSection = document.getElementById("aboutSection");
-const menuButtons = document.querySelectorAll(".menu_button");
+// ===== MAIN MENU BUTTON =====
+const mainMenuButton = document.getElementById("mainMenuButton");
+const teamSection = document.getElementById("teamSection");
+const teamButton = document.getElementById("teamButton");
+const aboutButton = document.getElementById("aboutButton");
 
-if (menuButtons.length > 0) {
-  // Bouton "About us" (index 1)
-  menuButtons[1].addEventListener("click", () => {
-    if (aboutSection) {
-      menuOverlay.classList.remove("active");
-      document.body.style.overflow = "";
-      document.body.classList.add("about_active");
-      aboutSection.classList.add("active");
-      window.scrollTo(0, 0);
+// ===== MAIN MENU BUTTON =====
+if (mainMenuButton) {
+  mainMenuButton.addEventListener("click", () => {
+    menuOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+    // Fermer toutes les sections actives
+    if (teamSection) {
+      document.body.classList.remove("team_active");
+      teamSection.classList.remove("active");
     }
-  });
-}
-
-// ===== BACK TO HOME (via logo ou autre) =====
-const logoBox = document.querySelector(".logo_box");
-if (logoBox) {
-  logoBox.addEventListener("click", () => {
     if (aboutSection) {
       document.body.classList.remove("about_active");
       aboutSection.classList.remove("active");
-      window.scrollTo(0, 0);
     }
+    window.scrollTo(0, 0);
+  });
+}
+
+// ===== TEAM BUTTON =====
+if (teamButton && teamSection) {
+  teamButton.addEventListener("click", () => {
+    menuOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+    document.body.classList.add("team_active");
+    teamSection.classList.add("active");
+    window.scrollTo(0, 0);
+  });
+}
+
+// ===== ABOUT US BUTTON =====
+const aboutSection = document.getElementById("aboutSection");
+
+if (aboutButton && aboutSection) {
+  aboutButton.addEventListener("click", () => {
+    menuOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+    document.body.classList.add("about_active");
+    aboutSection.classList.add("active");
+    window.scrollTo(0, 0);
+  });
+}
+
+// ===== BACK TO HOME (via logo) =====
+const logoBox = document.querySelector(".logo_box");
+if (logoBox) {
+  logoBox.addEventListener("click", () => {
+    if (teamSection) {
+      document.body.classList.remove("team_active");
+      teamSection.classList.remove("active");
+    }
+    if (aboutSection) {
+      document.body.classList.remove("about_active");
+      aboutSection.classList.remove("active");
+    }
+    window.scrollTo(0, 0);
   });
   logoBox.style.cursor = "pointer";
 }
