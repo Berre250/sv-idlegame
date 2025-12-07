@@ -1056,9 +1056,14 @@ body.about_active .footer {
 }
 
 .social_icons_image {
-  height: 40px;
+  height: 100px;
   width: auto;
   object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.social_icons_image:hover {
+  transform: scale(1.1);
 }
 
 .contact_info {
