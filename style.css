@@ -11,6 +11,18 @@ body {
   overflow-x: hidden;
 }
 
+/* ===== SCROLL PROGRESS BAR ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, red, #00aaff);
+  z-index: 2000;
+  transition: width 0.1s linear;
+}
+
 /* NAVBAR */
 .navbar {
   display: flex;
@@ -1235,4 +1247,92 @@ body.about_active .footer {
     gap: 40px;
     max-width: 100%;
   }
+}
+/* ===== GLOBAL ANIMATION SYSTEM ===== */
+
+/* état initial */
+[data-animate] {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+/* visible */
+[data-animate].visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* directions */
+[data-animate="up"] {
+  transform: translateY(40px);
+}
+
+[data-animate="down"] {
+  transform: translateY(-40px);
+}
+
+[data-animate="left"] {
+  transform: translateX(-40px);
+}
+
+[data-animate="right"] {
+  transform: translateX(40px);
+}
+
+/* hover global doux */
+.hover-global {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hover-global:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(255, 0, 0, 0.35);
+}
+
+/* ===== BACK TO TOP BUTTON ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, red, #00aaff);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1500;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* ===== CURSOR GLOW (WHITE) ===== */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.1),
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  mix-blend-mode: screen;
 }
