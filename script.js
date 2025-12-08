@@ -32,7 +32,7 @@ if (menuClose && menuOverlay) {
   });
 }
 
-// Fermer le menu en cliquant sur l'overlay (pas sur le panneau)
+// Fermer le menu en cliquant sur l'overlay
 if (menuOverlay) {
   menuOverlay.addEventListener("click", (e) => {
     if (e.target === menuOverlay) {
@@ -42,48 +42,136 @@ if (menuOverlay) {
   });
 }
 
-// ===== ABOUT US BUTTON =====
+// ===== SECTIONS =====
+const mainMenuButton = document.getElementById("mainMenuButton");
+const teamSection = document.getElementById("teamSection");
 const aboutSection = document.getElementById("aboutSection");
-const menuButtons = document.querySelectorAll(".menu_button");
+const teamButton = document.getElementById("teamButton");
+const aboutButton = document.getElementById("aboutButton");
 
-if (menuButtons.length > 0) {
-  // Bouton "About us" (index 1)
-  menuButtons[1].addEventListener("click", () => {
-    if (aboutSection) {
-      menuOverlay.classList.remove("active");
-      document.body.style.overflow = "";
-      document.body.classList.add("about_active");
-      aboutSection.classList.add("active");
-      window.scrollTo(0, 0);
-    }
+// Main menu
+if (mainMenuButton) {
+  mainMenuButton.addEventListener("click", () => {
+    menuOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+
+    document.body.classList.remove("team_active", "about_active");
+    teamSection?.classList.remove("active");
+    aboutSection?.classList.remove("active");
+
+    window.scrollTo(0, 0);
   });
 }
 
-// ===== BACK TO HOME (via logo ou autre) =====
+// Team
+if (teamButton && teamSection) {
+  teamButton.addEventListener("click", () => {
+    menuOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+
+    document.body.classList.add("team_active");
+    teamSection.classList.add("active");
+
+    window.scrollTo(0, 0);
+  });
+}
+
+// About
+if (aboutButton && aboutSection) {
+  aboutButton.addEventListener("click", () => {
+    menuOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+
+    document.body.classList.add("about_active");
+    aboutSection.classList.add("active");
+
+    window.scrollTo(0, 0);
+  });
+}
+
+// ===== BACK TO HOME (LOGO) =====
 const logoBox = document.querySelector(".logo_box");
+
 if (logoBox) {
   logoBox.addEventListener("click", () => {
-    if (aboutSection) {
-      document.body.classList.remove("about_active");
-      aboutSection.classList.remove("active");
-      window.scrollTo(0, 0);
-    }
+    document.body.classList.remove("team_active", "about_active");
+    teamSection?.classList.remove("active");
+    aboutSection?.classList.remove("active");
+    window.scrollTo(0, 0);
   });
+
   logoBox.style.cursor = "pointer";
 }
 
-// ===== HEADER AUTO HIDE ON SCROLL (PROPRE) =====
+// ===== HEADER HIDE / SHOW ON SCROLL =====
 const navbar = document.querySelector(".navbar");
-let lastScroll = window.scrollY;
+let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
-  const currentScroll = window.scrollY;
+  const currentScrollY = window.scrollY;
 
-  if (currentScroll > lastScroll) {
+  // Scroll vers le bas → cacher
+  if (currentScrollY > lastScrollY && currentScrollY > 100) {
     navbar.classList.add("hide");
-  } else {
+  }
+  // Scroll vers le haut → afficher
+  else {
     navbar.classList.remove("hide");
   }
 
-  lastScroll = currentScroll;
+  lastScrollY = currentScrollY;
+});
+
+// ===== GLOBAL SCROLL ANIMATIONS =====
+const animatedItems = document.querySelectorAll("[data-animate]");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+animatedItems.forEach((el) => observer.observe(el));
+
+// ===== SCROLL PROGRESS =====
+const progressBar = document.querySelector(".scroll-progress");
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  progressBar.style.width = `${scrollPercent}%`;
+});
+
+// ===== BACK TO TOP =====
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    backToTop.classList.add("show");
+  } else {
+    backToTop.classList.remove("show");
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+// ===== CURSOR GLOW FOLLOW =====
+const glow = document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove", (e) => {
+  glow.style.left = `${e.clientX}px`;
+  glow.style.top = `${e.clientY}px`;
 });
