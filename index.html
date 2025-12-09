@@ -29,19 +29,28 @@
           <span class="menu_close" id="menuClose">✕</span>
         </div>
         <div class="menu_buttons">
-          <button class="menu_button">Team</button>
-          <button class="menu_button">About us</button>
-          <button class="menu_button">Menu principal</button>
+          <button class="menu_button" id="teamButton">Team</button>
+          <button class="menu_button" id="aboutButton">About us</button>
+          <button class="menu_button" id="mainMenuButton">
+            Menu principal
+          </button>
         </div>
       </div>
     </div>
 
     <!-- HERO SECTION -->
-    <section class="hero" data-animate="up">
-      <div class="centerHover">
-        <span>ENTER</span>
+    <section class="hero hero-blackhole">
+      <!-- TEXTE INTRO (séparé) -->
+      <div class="intro-text">
+        <h1 id="txt">Welcome to Interstellar</h1>
       </div>
-      <h1>Welcome to the <span>Interstellar</span> world</h1>
+
+      <!-- BLACK HOLE (indépendant) -->
+      <div id="blackhole">
+        <div class="centerHover">
+          <span>ENTER</span>
+        </div>
+      </div>
     </section>
 
     <!-- MAIN CARD -->
@@ -91,7 +100,7 @@
           <div class="hero_card hero_card_blue hover-global" data-animate="up">
             <div class="hero_card_content">
               <div class="hero_icon">
-                <img src="pictures/ironman_icon.png" />
+                <img src="pictures/Iron_Man.png" />
               </div>
               <div class="hero_name">Iron-Man</div>
               <button class="hero_buy_btn">BUY</button>
@@ -101,7 +110,7 @@
           <div class="hero_card hero_card_red hover-global" data-animate="up">
             <div class="hero_card_content">
               <div class="hero_icon">
-                <img src="pictures/bumblebee_icon.png" />
+                <img src="pictures/bumblebee.png" />
               </div>
               <div class="hero_name">Bumblebee</div>
               <button class="hero_buy_btn unavailable">UNAVAILABLE</button>
@@ -164,10 +173,28 @@
         </div>
 
         <div class="bonus_character hover-global" data-animate="left">
-          <img src="pictures/optimus-prime1.jpg" />
+          <img src="pictures/optimusprime.png" />
         </div>
 
         <p class="bonus_final_message" data-animate="up">Enjoy your game!</p>
+      </div>
+    </section>
+
+    <section id="teamSection" class="team_section">
+      <div class="about_container">
+        <h1 class="about_title">Our Team</h1>
+        <p class="about_intro">
+          This is the Team section. Replace this with your real content.
+        </p>
+      </div>
+    </section>
+
+    <section id="aboutSection" class="about_section">
+      <div class="about_container">
+        <h1 class="about_title">About Us</h1>
+        <p class="about_intro">
+          This is the About section. Replace this with your real content.
+        </p>
       </div>
     </section>
 
