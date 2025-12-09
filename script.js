@@ -419,13 +419,49 @@ document.addEventListener("DOMContentLoaded", () => {
   txtElement.addEventListener("click", animateText);
 });
 
-// disparition du text après quelques secondes
-
+// ===== DISPARITION DU TEXTE (votre code existant) =====
 setTimeout(() => {
-  txt.style.transition = "opacity 1s ease";
-  txt.style.opacity = "0";
+  const txt = document.querySelector("#txt");
+  if (txt) {
+    txt.style.transition = "opacity 1s ease";
+    txt.style.opacity = "0";
 
-  setTimeout(() => {
-    txt.remove();
-  }, 1000);
-}, 4000);
+    setTimeout(() => {
+      txt.remove();
+    }, 1000);
+  }
+}, 2800);
+
+// ===== DISPARITION SÉQUENTIELLE CENTERHOVER → BLACKHOLE =====
+document.querySelectorAll(".centerHover").forEach((element) => {
+  element.addEventListener("click", function () {
+    console.log("Clic sur centerHover - début de la séquence");
+
+    // 1. Faire disparaître centerHover
+    this.style.transition = "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+    this.style.opacity = "0";
+    this.style.transform = "scale(0.7) translateY(-10px)";
+    this.style.pointerEvents = "none";
+
+    // 2. Après 0.5s, commencer à cacher blackhole
+    setTimeout(() => {
+      const blackhole = document.querySelector("#blackhole");
+      if (blackhole) {
+        console.log("Début de la disparition de blackhole");
+
+        // Animation plus dramatique pour blackhole
+        blackhole.style.transition =
+          "all 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)";
+        blackhole.style.opacity = "0";
+        blackhole.style.transform = "scale(0.5)";
+        blackhole.style.filter = "blur(30px) brightness(0.8)";
+
+        // 3. Optionnel: supprimer complètement
+        setTimeout(() => {
+          blackhole.style.display = "none";
+          console.log("Blackhole complètement caché");
+        }, 1200);
+      }
+    }, 2500); // Délai avant de commencer à cacher blackhole
+  });
+});
