@@ -568,6 +568,7 @@ body.about_active .footer {
 .card_image img {
   height: 100%;
   width: auto;
+  border-radius: 100px;
 }
 
 .card_content {
@@ -1335,4 +1336,66 @@ body.about_active .footer {
   transform: translate(-50%, -50%);
   z-index: 1;
   mix-blend-mode: screen;
+}
+
+.hero-blackhole {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#blackhole {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#blackhole canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.centerHover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.hero-blackhole h1 {
+  position: relative;
+  z-index: 10;
+  margin-top: 40px;
+}
+#blackhole {
+  background: #000;
+}
+
+#txt span {
+  display: inline-block;
+  opacity: 0;
+  animation: textIn 0.5s ease forwards;
+  color: white;
+  text-shadow: none;
+}
+
+@keyframes textIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* disparition finale */
+#txt.hide {
+  opacity: 0;
+  transition: opacity 1s ease;
 }
