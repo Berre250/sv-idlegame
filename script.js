@@ -601,7 +601,7 @@ function showTransitionMessages() {
   // Séquence d'animations
   setTimeout(() => {
     // Premier message
-    transitionMessage.textContent = "WARP DRIVE ACTIVATED";
+    transitionMessage.textContent = "YOUR JOURNEY BEGINS";
     transitionMessage.style.transition = "opacity 0.8s ease";
     transitionMessage.style.opacity = "1";
 
