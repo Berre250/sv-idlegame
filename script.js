@@ -665,7 +665,7 @@ function showTransitionMessages() {
 
       setTimeout(() => {
         // Deuxième message
-        transitionMessage.textContent = "ENTERING INTERSTELLAR SPACE";
+        transitionMessage.textContent = "";
         transitionMessage.style.color = "#ff3366";
         transitionMessage.style.opacity = "1";
 
