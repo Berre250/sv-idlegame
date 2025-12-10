@@ -39,60 +39,6 @@ if (menuOverlay) {
   });
 }
 
-// ===== SECTIONS =====
-const mainMenuButton = document.getElementById("mainMenuButton");
-const teamSection = document.getElementById("teamSection");
-const aboutSection = document.getElementById("aboutSection");
-const teamButton = document.getElementById("teamButton");
-const aboutButton = document.getElementById("aboutButton");
-const mainContent = document.querySelector(".main-content");
-
-if (mainMenuButton) {
-  mainMenuButton.addEventListener("click", () => {
-    menuOverlay.classList.remove("active");
-    document.body.style.overflow = "";
-    document.body.classList.remove("team_active", "about_active");
-    teamSection?.classList.remove("active");
-    aboutSection?.classList.remove("active");
-    mainContent.style.display = "block";
-    window.scrollTo(0, 0);
-  });
-}
-
-if (teamButton && teamSection) {
-  teamButton.addEventListener("click", () => {
-    menuOverlay.classList.remove("active");
-    document.body.style.overflow = "";
-    document.body.classList.add("team_active");
-    teamSection.classList.add("active");
-    mainContent.style.display = "none";
-    window.scrollTo(0, 0);
-  });
-}
-
-if (aboutButton && aboutSection) {
-  aboutButton.addEventListener("click", () => {
-    menuOverlay.classList.remove("active");
-    document.body.style.overflow = "";
-    document.body.classList.add("about_active");
-    aboutSection.classList.add("active");
-    mainContent.style.display = "none";
-    window.scrollTo(0, 0);
-  });
-}
-
-// ===== BACK TO HOME (LOGO) =====
-const logoBox = document.querySelector(".logo_box");
-if (logoBox) {
-  logoBox.addEventListener("click", () => {
-    document.body.classList.remove("team_active", "about_active");
-    teamSection?.classList.remove("active");
-    aboutSection?.classList.remove("active");
-    mainContent.style.display = "block";
-    window.scrollTo(0, 0);
-  });
-}
-
 // ===== HEADER HIDE / SHOW ON SCROLL =====
 const navbar = document.querySelector(".navbar");
 let lastScrollY = window.scrollY;
@@ -917,3 +863,152 @@ if (blackholeImage) {
     }
   });
 }
+// ===== FONCTIONNALITÉS ABOUT US SIMPLIFIÉES =====
+
+// Initialiser la section About Us
+function initAboutUs() {
+  console.log("Initialisation About Us");
+
+  // Bouton Play dans About Us
+  const aboutPlayBtn = document.getElementById("aboutPlayBtn");
+  if (aboutPlayBtn) {
+    aboutPlayBtn.addEventListener("click", function () {
+      // Effet visuel
+      this.style.transform = "scale(0.95)";
+      this.style.background = "linear-gradient(90deg, #00ccff, #0066ff)";
+
+      // Message
+      setTimeout(() => {
+        alert(
+          "🚀 Launching Interstellar... Get ready for your cosmic adventure!"
+        );
+
+        // Retour au contenu principal si besoin
+        const mainContent = document.querySelector(".main-content");
+        if (mainContent) {
+          mainContent.style.display = "block";
+          document.body.classList.remove("about_active");
+
+          // Scroller vers la section jeu
+          const gameSection = document.querySelector(".heroes_section");
+          if (gameSection) {
+            gameSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+
+        // Réinitialiser le bouton
+        setTimeout(() => {
+          this.style.transform = "";
+          this.style.background = "linear-gradient(90deg, #ff3366, #ff0033)";
+        }, 1000);
+      }, 500);
+    });
+  }
+
+  // Animation des cartes au survol
+  const devCards = document.querySelectorAll(".dev-card");
+  devCards.forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      const image = this.querySelector("img");
+      if (image) {
+        image.style.transform = "scale(1.1)";
+      }
+    });
+
+    card.addEventListener("mouseleave", function () {
+      const image = this.querySelector("img");
+      if (image) {
+        image.style.transform = "scale(1)";
+      }
+    });
+  });
+}
+
+// Navigation vers About Us
+function showAboutSection() {
+  console.log("Navigation vers About Us");
+
+  const aboutSection = document.getElementById("aboutSection");
+  if (!aboutSection) return;
+
+  // Masquer le contenu principal
+  const mainContent = document.querySelector(".main-content");
+  if (mainContent) {
+    mainContent.style.display = "none";
+  }
+
+  // Masquer team section si elle existe
+  const teamSection = document.getElementById("teamSection");
+  if (teamSection) {
+    teamSection.style.display = "none";
+  }
+
+  // Afficher About Us
+  aboutSection.style.display = "block";
+  document.body.classList.add("about_active");
+
+  // Initialiser les animations
+  setTimeout(initAboutUs, 100);
+}
+
+// Navigation depuis le menu
+document.addEventListener("DOMContentLoaded", function () {
+  // Bouton About Us dans le menu
+  const aboutButton = document.getElementById("aboutButton");
+  if (aboutButton) {
+    aboutButton.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Fermer le menu
+      const menuOverlay = document.getElementById("menuOverlay");
+      if (menuOverlay) {
+        menuOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Afficher About Us
+      showAboutSection();
+    });
+  }
+
+  // Bouton retour menu principal
+  const mainMenuButton = document.getElementById("mainMenuButton");
+  if (mainMenuButton) {
+    mainMenuButton.addEventListener("click", function () {
+      // Cacher About Us
+      const aboutSection = document.getElementById("aboutSection");
+      if (aboutSection) {
+        aboutSection.style.display = "none";
+      }
+
+      // Afficher le contenu principal
+      const mainContent = document.querySelector(".main-content");
+      if (mainContent) {
+        mainContent.style.display = "block";
+      }
+
+      document.body.classList.remove("about_active");
+    });
+  }
+
+  // Logo - retour à l'accueil
+  const logoBox = document.querySelector(".logo_box");
+  if (logoBox) {
+    logoBox.addEventListener("click", function () {
+      // Cacher About Us
+      const aboutSection = document.getElementById("aboutSection");
+      if (aboutSection) {
+        aboutSection.style.display = "none";
+      }
+
+      // Afficher le contenu principal
+      const mainContent = document.querySelector(".main-content");
+      if (mainContent) {
+        mainContent.style.display = "block";
+      }
+
+      document.body.classList.remove("about_active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+});

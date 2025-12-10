@@ -32,7 +32,6 @@
           <span class="menu_close" id="menuClose">✕</span>
         </div>
         <div class="menu_buttons">
-          <button class="menu_button" id="teamButton">Team</button>
           <button class="menu_button" id="aboutButton">About us</button>
           <button class="menu_button" id="mainMenuButton">
             Menu principal
@@ -83,7 +82,7 @@
           </p>
 
           <div class="story_hero_image" data-animate="right">
-            <img src="pictures/robin1.jpeg" alt="Robin hero" />
+            <img src="pictures/robin1.png" alt="Robin hero" />
           </div>
         </div>
       </section>
@@ -201,7 +200,7 @@
       <section class="hero_showcase_section green" data-animate="up">
         <div class="hero_showcase_container reverse">
           <div class="hero_showcase_image" data-animate="right">
-            <img src="pictures/robin1.jpeg" alt="Robin" />
+            <img src="pictures/robin1.png" alt="Robin" />
           </div>
           <div class="hero_showcase_content" data-animate="left">
             <h2 class="hero_showcase_title">ROBIN</h2>
@@ -273,7 +272,7 @@
           <div class="hero_card hero_card_green hover-global" data-animate="up">
             <div class="hero_card_content">
               <div class="hero_icon">
-                <img src="pictures/robin1.jpeg" alt="Robin" />
+                <img src="pictures/robin1.png" alt="Robin" />
               </div>
               <div class="hero_name">Robin</div>
               <div class="hero_price">5,000 ⚡</div>
@@ -405,82 +404,331 @@
         </div>
       </footer>
     </div>
-
-    <!-- SECTIONS ADDITIONNELLES -->
-    <section id="teamSection" class="team_section">
+    <!-- ===== ABOUT US SECTION (avec l'équipe intégrée) ===== -->
+    <section id="aboutSection" class="about_section">
       <div class="about_container">
-        <h1 class="about_title">Our Team</h1>
-        <p class="about_intro">
-          Meet the talented developers behind Interstellar.
+        <!-- Titre principal avec animation -->
+        <h1 class="about_title" data-animate="down">About Us</h1>
+
+        <!-- Introduction -->
+        <p class="about_intro" data-animate="up">
+          We are a passionate team of developers and designers creating
+          <span class="highlight-text">Interstellar</span>, an innovative idle
+          game that combines strategic gameplay with stunning visuals. Our
+          mission is to deliver an immersive experience where players save the
+          universe one click at a time.
         </p>
-        <div class="team_cards">
-          <div class="team_card">
-            <div class="team_card_frame">
-              <div class="team_image">
-                <img src="pictures/1.jpg" alt="Amir" />
+
+        <!-- SECTION NOTRE ÉQUIPE -->
+        <div class="team-intro" data-animate="left">
+          <h2 class="section-subtitle">
+            <i class="fas fa-users"></i> Meet Our Space Crew
+          </h2>
+          <p class="intro-text">
+            Four talented developers working together to bring this cosmic
+            adventure to life. Each member brings unique skills to the mission.
+          </p>
+        </div>
+
+        <!-- Cartes des développeurs -->
+        <div class="dev_team_cards">
+          <!-- Développeur 1 : Rabah -->
+          <div class="dev_card" data-animate="left">
+            <div class="dev_card_inner">
+              <!-- Effet de particules spatiales -->
+              <div class="space-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
               </div>
-              <div class="team_info">
-                <h2 class="team_name">Amir</h2>
-                <p class="team_title">
-                  Développeur Web<br />Responsable du site vitrine
+
+              <!-- Photo du développeur -->
+              <div class="dev_image_frame">
+                <div class="dev_image">
+                  <img
+                    src="pictures/berre.jpg"
+                    alt="Rabah"
+                    onerror="this.src='https://via.placeholder.com/200x200/0a0a2a/00ccff?text=R'"
+                  />
+                </div>
+                <!-- Badge rôle -->
+                <div class="role_badge">
+                  <i class="fas fa-code"></i> Web Dev
+                </div>
+              </div>
+
+              <!-- Informations -->
+              <div class="dev_info">
+                <h3 class="dev_name">Rabah</h3>
+                <p class="dev_role">Frontend Developer</p>
+                <div class="dev_specialty">
+                  <i class="fas fa-globe"></i>
+                  <span>Website Development</span>
+                </div>
+                <p class="dev_desc">
+                  Responsible for the showcase website. Creates responsive
+                  interfaces and ensures smooth user experience across all
+                  devices.
                 </p>
+
+                <!-- Technologies -->
+                <div class="tech_stack">
+                  <span class="tech_tag">HTML5</span>
+                  <span class="tech_tag">CSS3</span>
+                  <span class="tech_tag">JavaScript</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="team_card">
-            <div class="team_card_frame">
-              <div class="team_image">
-                <img src="pictures/2.jpg" alt="Rabah" />
+          <!-- Développeur 2 : Amir -->
+          <div class="dev_card" data-animate="up">
+            <div class="dev_card_inner">
+              <!-- Effet de particules spatiales -->
+              <div class="space-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
               </div>
-              <div class="team_info">
-                <h2 class="team_name">Rabah</h2>
-                <p class="team_title">
-                  Développeur Web<br />Responsable du site vitrine
+
+              <!-- Photo du développeur -->
+              <div class="dev_image_frame">
+                <div class="dev_image">
+                  <img
+                    src="pictures/1.jpg"
+                    alt="Amir"
+                    onerror="this.src='https://via.placeholder.com/200x200/0a0a2a/ff3366?text=A'"
+                  />
+                </div>
+                <!-- Badge rôle -->
+                <div class="role_badge">
+                  <i class="fas fa-laptop-code"></i> UI/UX
+                </div>
+              </div>
+
+              <!-- Informations -->
+              <div class="dev_info">
+                <h3 class="dev_name">Amir</h3>
+                <p class="dev_role">UI/UX Designer & Developer</p>
+                <div class="dev_specialty">
+                  <i class="fas fa-paint-brush"></i>
+                  <span>Visual Design & Frontend</span>
+                </div>
+                <p class="dev_desc">
+                  Designs captivating user interfaces and implements interactive
+                  elements that make the website visually stunning and
+                  intuitive.
                 </p>
+
+                <!-- Technologies -->
+                <div class="tech_stack">
+                  <span class="tech_tag">CSS3</span>
+                  <span class="tech_tag">JavaScript</span>
+                  <span class="tech_tag">Figma</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="team_card">
-            <div class="team_card_frame">
-              <div class="team_image">
-                <img src="pictures/1.jpg" alt="Hamza" />
+          <!-- Développeur 3 : Hamza -->
+          <div class="dev_card" data-animate="up">
+            <div class="dev_card_inner">
+              <!-- Effet de particules spatiales -->
+              <div class="space-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
               </div>
-              <div class="team_info">
-                <h2 class="team_name">Hamza</h2>
-                <p class="team_title">
-                  Développeur Jeux<br />Responsable du jeu Idle
+
+              <!-- Photo du développeur -->
+              <div class="dev_image_frame">
+                <div class="dev_image">
+                  <img
+                    src="pictures/1.jpg"
+                    alt="Hamza"
+                    onerror="this.src='https://via.placeholder.com/200x200/0a0a2a/ffcc00?text=H'"
+                  />
+                </div>
+                <!-- Badge rôle -->
+                <div class="role_badge">
+                  <i class="fas fa-gamepad"></i> Game Dev
+                </div>
+              </div>
+
+              <!-- Informations -->
+              <div class="dev_info">
+                <h3 class="dev_name">Hamza</h3>
+                <p class="dev_role">Game Developer</p>
+                <div class="dev_specialty">
+                  <i class="fas fa-rocket"></i>
+                  <span>Idle Game Mechanics</span>
+                </div>
+                <p class="dev_desc">
+                  Develops the core idle game mechanics, progression systems,
+                  and ensures balanced gameplay that keeps players engaged.
                 </p>
+
+                <!-- Technologies -->
+                <div class="tech_stack">
+                  <span class="tech_tag">JavaScript</span>
+                  <span class="tech_tag">Game Logic</span>
+                  <span class="tech_tag">Algorithms</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="team_card">
-            <div class="team_card_frame">
-              <div class="team_image">
-                <img src="pictures/2.jpg" alt="Geoffrey" />
+          <!-- Développeur 4 : Geoffrey -->
+          <div class="dev_card" data-animate="right">
+            <div class="dev_card_inner">
+              <!-- Effet de particules spatiales -->
+              <div class="space-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
               </div>
-              <div class="team_info">
-                <h2 class="team_name">Geoffrey</h2>
-                <p class="team_title">
-                  Développeur Jeux<br />Responsable du jeu Idle
+
+              <!-- Photo du développeur -->
+              <div class="dev_image_frame">
+                <div class="dev_image">
+                  <img
+                    src="pictures/geoffrey.jpg"
+                    alt="Geoffrey"
+                    onerror="this.src='https://via.placeholder.com/200x200/0a0a2a/00ff00?text=G'"
+                  />
+                </div>
+                <!-- Badge rôle -->
+                <div class="role_badge">
+                  <i class="fas fa-cogs"></i> Systems
+                </div>
+              </div>
+
+              <!-- Informations -->
+              <div class="dev_info">
+                <h3 class="dev_name">Geoffrey</h3>
+                <p class="dev_role">Game Systems Developer</p>
+                <div class="dev_specialty">
+                  <i class="fas fa-microchip"></i>
+                  <span>Backend Systems</span>
+                </div>
+                <p class="dev_desc">
+                  Builds robust game systems, data management, and ensures
+                  smooth performance for the idle game experience.
                 </p>
+
+                <!-- Technologies -->
+                <div class="tech_stack">
+                  <span class="tech_tag">JavaScript</span>
+                  <span class="tech_tag">Data Structures</span>
+                  <span class="tech_tag">Optimization</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="aboutSection" class="about_section">
-      <div class="about_container">
-        <h1 class="about_title">About Us</h1>
-        <p class="about_intro">
-          Interstellar is an innovative idle game project combining strategic
-          gameplay with stunning visuals. Our mission is to create an engaging
-          experience where players save the universe one click at a time.
-        </p>
+        <!-- SECTION TECHNOLOGIES UTILISÉES -->
+        <div class="tech_section" data-animate="up">
+          <h2 class="section-subtitle">
+            <i class="fas fa-tools"></i> Our Tech Stack
+          </h2>
+          <p class="intro-text">
+            Built with modern web technologies to deliver a seamless experience.
+          </p>
+
+          <div class="tech_icons">
+            <div class="tech_icon_item" data-animate="left">
+              <div class="tech_icon_circle html">
+                <i class="fab fa-html5"></i>
+              </div>
+              <h4>HTML5</h4>
+              <p>Semantic structure</p>
+            </div>
+
+            <div class="tech_icon_item" data-animate="up">
+              <div class="tech_icon_circle css">
+                <i class="fab fa-css3-alt"></i>
+              </div>
+              <h4>CSS3</h4>
+              <p>Styling & animations</p>
+            </div>
+
+            <div class="tech_icon_item" data-animate="up">
+              <div class="tech_icon_circle js">
+                <i class="fab fa-js-square"></i>
+              </div>
+              <h4>JavaScript</h4>
+              <p>Interactivity & logic</p>
+            </div>
+
+            <div class="tech_icon_item" data-animate="right">
+              <div class="tech_icon_circle game">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <h4>Game Dev</h4>
+              <p>Idle mechanics</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION MISSION -->
+        <div class="mission_section" data-animate="up">
+          <div class="mission_content">
+            <div class="mission_text" data-animate="left">
+              <h2 class="section-subtitle">
+                <i class="fas fa-bullseye"></i> Our Mission
+              </h2>
+              <p>
+                We believe in creating games that not only entertain but also
+                inspire.
+                <span class="highlight-text">Interstellar</span> represents our
+                commitment to pushing the boundaries of web-based gaming,
+                combining beautiful visuals with engaging gameplay mechanics.
+              </p>
+              <p>
+                Our team works tirelessly to bring you an experience that
+                transports you to another dimension, where every click brings
+                you closer to saving the universe.
+              </p>
+              <div class="mission_stats">
+                <div class="mission_stat">
+                  <div class="stat_number">4</div>
+                  <div class="stat_label">Developers</div>
+                </div>
+                <div class="mission_stat">
+                  <div class="stat_number">3</div>
+                  <div class="stat_label">Technologies</div>
+                </div>
+                <div class="mission_stat">
+                  <div class="stat_number">1</div>
+                  <div class="stat_label">Cosmic Vision</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mission_visual" data-animate="right">
+              <div class="mission_orb">
+                <div class="orb_inner">
+                  <i class="fas fa-infinity"></i>
+                </div>
+                <div class="orb_ring"></div>
+                <div class="orb_ring"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- APPEL À L'ACTION -->
+        <div class="cta_section" data-animate="up">
+          <h2 class="cta_title">Ready to Join the Adventure?</h2>
+          <p class="cta_text">
+            Experience the game our team has been working on. Save the universe
+            today!
+          </p>
+          <button class="cta_button" id="aboutPlayBtn">
+            <i class="fas fa-play-circle"></i> Launch Game
+          </button>
+        </div>
       </div>
     </section>
 
