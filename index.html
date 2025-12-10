@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <title>Interstellar</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
 
   <body>
     <div class="scroll-progress"></div>
-
     <div class="cursor-glow"></div>
 
     <!-- NAVBAR -->
     <header class="navbar">
-      <div class="logo_box">
+      <div class="logo_box" style="cursor: pointer">
         <img src="pictures/logo.png" alt="Interstellar Logo" />
       </div>
       <div class="nav_icons">
@@ -23,7 +26,7 @@
 
     <!-- MENU OVERLAY -->
     <div class="menu_overlay" id="menuOverlay">
-      <div class="menu_panel" data-animate="up">
+      <div class="menu_panel">
         <div class="menu_header">
           <span class="menu_title">menu</span>
           <span class="menu_close" id="menuClose">✕</span>
@@ -40,12 +43,9 @@
 
     <!-- HERO SECTION -->
     <section class="hero hero-blackhole">
-      <!-- TEXTE INTRO (séparé) -->
       <div class="intro-text">
         <h1 id="txt">Welcome to the Interstellar world</h1>
       </div>
-
-      <!-- BLACK HOLE (indépendant) -->
       <div id="blackhole">
         <div class="centerHover">
           <span>ENTER</span>
@@ -53,182 +53,365 @@
       </div>
     </section>
 
-    <!-- MAIN CARD -->
-    <section class="main_card" data-animate="left">
-      <div class="card_image hover-global">
-        <img src="pictures/cosmic.png" alt="cosmic" />
-      </div>
-      <div class="card_content" data-animate="right">
-        <p>Come to save the world and unlock your favourite heroes</p>
-        <button id="playBtn">Play</button>
-      </div>
-    </section>
+    <!-- CONTENU PRINCIPAL -->
+    <div class="main-content">
+      <!-- MAIN CARD -->
+      <section class="main_card" data-animate="left">
+        <div class="card_image hover-global">
+          <img src="pictures/cosmic.png" alt="cosmic" />
+        </div>
+        <div class="card_content" data-animate="right">
+          <p>Come to save the world and unlock your favourite heroes</p>
+          <button id="playBtn">Play Now</button>
+        </div>
+      </section>
 
-    <!-- STORY -->
-    <section class="story" data-animate="up">
-      <div class="story_container">
-        <div class="story_blackhole" data-animate="left">
-          <img src="pictures/trou_noir (1).png" alt="Black hole" />
+      <!-- STORY -->
+      <section class="story" data-animate="up">
+        <div class="story_container">
+          <div class="story_blackhole" data-animate="left">
+            <img src="pictures/trou_noir (1).png" alt="Black hole" />
+          </div>
+
+          <p class="story_main_text" data-animate="up">
+            The <span class="highlight">black hole</span> is growing, rush
+            towards it to destroy it and protect Earth.
+          </p>
+
+          <p class="story_sub_text" data-animate="left">
+            Begin your quest by unlocking Robin, your first hero.
+          </p>
+
+          <div class="story_hero_image" data-animate="right">
+            <img src="pictures/robin1.jpeg" alt="Robin hero" />
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION HÉROS: IRON MAN -->
+      <section class="hero_showcase_section" data-animate="up">
+        <div class="hero_showcase_container">
+          <div class="hero_showcase_image" data-animate="left">
+            <img src="pictures/Iron_Man.png" alt="Iron Man" />
+          </div>
+          <div class="hero_showcase_content" data-animate="right">
+            <h2 class="hero_showcase_title">IRON MAN</h2>
+            <p class="hero_showcase_subtitle">The Genius Billionaire</p>
+            <p class="hero_showcase_description">
+              Tony Stark's advanced suit of armor gives him superhuman strength
+              and the ability to fly. With his arc reactor technology, he powers
+              through enemies with devastating repulsor beams.
+            </p>
+            <p class="hero_showcase_description">
+              Perfect for players who value technology and firepower, Iron Man
+              delivers massive damage with every click.
+            </p>
+            <div class="hero_showcase_stats">
+              <div class="hero_stat">
+                <div class="hero_stat_label">Power</div>
+                <div class="hero_stat_value">⚡ 95</div>
+              </div>
+              <div class="hero_stat">
+                <div class="hero_stat_label">Speed</div>
+                <div class="hero_stat_value">🚀 88</div>
+              </div>
+              <div class="hero_stat">
+                <div class="hero_stat_label">Tech</div>
+                <div class="hero_stat_value">🔧 100</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION HÉROS: OPTIMUS PRIME -->
+      <section class="hero_showcase_section red" data-animate="up">
+        <div class="hero_showcase_container reverse">
+          <div class="hero_showcase_image" data-animate="right">
+            <img src="pictures/optimusprime.png" alt="Optimus Prime" />
+          </div>
+          <div class="hero_showcase_content" data-animate="left">
+            <h2 class="hero_showcase_title">OPTIMUS PRIME</h2>
+            <p class="hero_showcase_subtitle">The Legendary Autobot Leader</p>
+            <p class="hero_showcase_description">
+              Leader of the Autobots, Optimus Prime combines wisdom with
+              unmatched combat prowess. His transformation abilities and ion
+              blaster make him a formidable force against any threat.
+            </p>
+            <p class="hero_showcase_description">
+              Unlock this legendary hero to multiply your cosmic energy
+              production and lead your team to victory.
+            </p>
+            <div class="hero_showcase_stats">
+              <div class="hero_stat">
+                <div class="hero_stat_label">Strength</div>
+                <div class="hero_stat_value">💪 100</div>
+              </div>
+              <div class="hero_stat">
+                <div class="hero_stat_label">Leadership</div>
+                <div class="hero_stat_value">⭐ 100</div>
+              </div>
+              <div class="hero_stat">
+                <div class="hero_stat_label">Defense</div>
+                <div class="hero_stat_value">🛡️ 98</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION HÉROS: BUMBLEBEE -->
+      <section class="hero_showcase_section yellow" data-animate="up">
+        <div class="hero_showcase_container">
+          <div class="hero_showcase_image" data-animate="left">
+            <img src="pictures/bumblebee.png" alt="Bumblebee" />
+          </div>
+          <div class="hero_showcase_content" data-animate="right">
+            <h2 class="hero_showcase_title">BUMBLEBEE</h2>
+            <p class="hero_showcase_subtitle">The Loyal Scout</p>
+            <p class="hero_showcase_description">
+              Bumblebee may be small, but he's fast, agile, and fiercely loyal.
+              His speed and reconnaissance skills make him invaluable for
+              scouting missions and quick strikes.
+            </p>
+            <p class="hero_showcase_description">
+              As an Autobot scout, Bumblebee excels at gathering intelligence
+              and delivering rapid, precise attacks that catch enemies off
+              guard.
+            </p>
+            <div class="hero_showcase_stats">
+              <div class="hero_stat">
+                <div class="hero_stat_label">Speed</div>
+                <div class="hero_stat_value">⚡ 95</div>
+              </div>
+              <div class="hero_stat">
+                <div class="hero_stat_label">Agility</div>
+                <div class="hero_stat_value">🌀 92</div>
+              </div>
+              <div class="hero_stat">
+                <div class="hero_stat_label">Loyalty</div>
+                <div class="hero_stat_value">❤️ 100</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION HÉROS: ROBIN -->
+      <section class="hero_showcase_section green" data-animate="up">
+        <div class="hero_showcase_container reverse">
+          <div class="hero_showcase_image" data-animate="right">
+            <img src="pictures/robin1.jpeg" alt="Robin" />
+          </div>
+          <div class="hero_showcase_content" data-animate="left">
+            <h2 class="hero_showcase_title">ROBIN</h2>
+            <p class="hero_showcase_subtitle">The Boy Wonder</p>
+            <p class="hero_showcase_description">
+              Trained by the Dark Knight himself, Robin combines acrobatics,
+              martial arts, and detective skills. He's the perfect balance of
+              agility and intelligence.
+            </p>
+            <p class="hero_showcase_description">
+              As your first hero, Robin provides a steady stream of cosmic
+              energy and teaches you the basics of hero management in the
+              Interstellar universe.
+            </p>
+            <div class="hero_showcase_stats">
+              <div class="hero_stat">
+                <div class="hero_stat_label">Agility</div>
+                <div class="hero_stat_value">🤸 90</div>
+              </div>
+              <div class="hero_stat">
+                <div class="hero_stat_label">Intelligence</div>
+                <div class="hero_stat_value">🧠 85</div>
+              </div>
+              <div class="hero_stat">
+                <div class="hero_stat_label">Stealth</div>
+                <div class="hero_stat_value">🕶️ 88</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HEROES SECTION -->
+      <section class="heroes_section" data-animate="up">
+        <div class="heroes_top_bar" data-animate="down">
+          <h2 class="section_title">UNLOCK YOUR HEROES</h2>
+          <p class="heroes_info_text">
+            With cosmic energy, you could unlock heroes to help you multiply
+            your ability to make more clicks in real time.
+          </p>
         </div>
 
-        <p class="story_main_text" data-animate="up">
-          The <span class="highlight">black hole</span> is growing, rush towards
-          it to destroy it and protect Earth.
-        </p>
-
-        <p class="story_sub_text" data-animate="left">
-          Begin your quest by unlocking Robin, your first hero.
-        </p>
-
-        <div class="story_hero_image" data-animate="right">
-          <img src="pictures/robin1.jpeg" alt="Robin hero" />
-        </div>
-      </div>
-    </section>
-
-    <!-- HEROES SECTION -->
-    <section class="heroes_section" data-animate="up">
-      <div class="heroes_top_bar" data-animate="down">
-        <p class="heroes_info_text">
-          With cosmic energy, you could unlock heroes to help you multiply your
-          ability to make more clicks in real time.
-        </p>
-      </div>
-
-      <div class="heroes_main_content">
-        <div class="heroes_cards">
+        <div class="heroes_main_content">
           <div class="hero_card hero_card_blue hover-global" data-animate="up">
             <div class="hero_card_content">
               <div class="hero_icon">
-                <img src="pictures/Iron_Man.png" />
+                <img src="pictures/Iron_Man.png" alt="Iron Man" />
               </div>
               <div class="hero_name">Iron-Man</div>
-              <button class="hero_buy_btn">BUY</button>
+              <div class="hero_price">10,000 ⚡</div>
+              <button class="hero_buy_btn">BUY NOW</button>
+            </div>
+          </div>
+
+          <div
+            class="hero_card hero_card_yellow hover-global"
+            data-animate="up"
+          >
+            <div class="hero_card_content">
+              <div class="hero_icon">
+                <img src="pictures/bumblebee.png" alt="Bumblebee" />
+              </div>
+              <div class="hero_name">Bumblebee</div>
+              <div class="hero_price">25,000 ⚡</div>
+              <button class="hero_buy_btn">BUY NOW</button>
+            </div>
+          </div>
+
+          <div class="hero_card hero_card_green hover-global" data-animate="up">
+            <div class="hero_card_content">
+              <div class="hero_icon">
+                <img src="pictures/robin1.jpeg" alt="Robin" />
+              </div>
+              <div class="hero_name">Robin</div>
+              <div class="hero_price">5,000 ⚡</div>
+              <button class="hero_buy_btn">BUY NOW</button>
             </div>
           </div>
 
           <div class="hero_card hero_card_red hover-global" data-animate="up">
             <div class="hero_card_content">
               <div class="hero_icon">
-                <img src="pictures/bumblebee.png" />
+                <img src="pictures/optimusprime.png" alt="Optimus Prime" />
               </div>
-              <div class="hero_name">Bumblebee</div>
+              <div class="hero_name">Optimus Prime</div>
+              <div class="hero_price">50,000 ⚡</div>
               <button class="hero_buy_btn unavailable">UNAVAILABLE</button>
             </div>
           </div>
         </div>
-        <div class="hero_card hero_card_blue hover-global" data-animate="up">
-          <div class="hero_card_content">
-            <div class="hero_icon">
-              <img src="pictures/robin1.jpeg" />
-            </div>
-            <div class="hero_name">Robin</div>
-            <button class="hero_buy_btn">BUY</button>
-          </div>
-        </div>
+      </section>
 
-        <div class="hero_card hero_card_red hover-global" data-animate="up">
-          <div class="hero_card_content">
-            <div class="hero_icon">
-              <img src="pictures/optimusprime.png" />
-            </div>
-            <div class="hero_name">Optimus Prime</div>
-            <button class="hero_buy_btn unavailable">UNAVAILABLE</button>
-          </div>
-        </div>
-
-        <p class="heroes_explanation" data-animate="right">
-          Some heroes cost more cosmic energy than others.
-        </p>
-      </div>
-      <!-- <div class="hero_card hero_card_blue hover-global">
-        <div class="hero_card_content">
-          <div class="hero_icon">
-            <img src="pictures/robin1.jpeg" />
-          </div>
-          <div class="hero_name">Robin</div>
-          <button class="hero_buy_btn">BUY</button>
-        </div>
-      </div>
-
-      <div class="hero_card hero_card_red hover-global">
-        <div class="hero_card_content">
-          <div class="hero_icon">
-            <img src="pictures/optimusprime.png" />
-          </div>
-          <div class="hero_name">Optimus Prime</div>
-          <button class="hero_buy_btn unavailable">UNAVAILABLE</button>
-        </div>
-      </div> -->
-    </section>
-
-    <!-- BLACK HOLE -->
-    <section class="blackhole_game_section" data-animate="up">
-      <p class="blackhole_instruction">
-        Make sure to reduce the size of the black hole by playing.
-      </p>
-
-      <div class="blackhole_display">
-        <div class="blackhole_graphic">
-          <img
-            src="pictures/trou_tourne.png"
-            class="blackhole_image"
-            alt="Black hole"
-          />
-          <div class="blackhole_label">
-            <div class="blackhole_percentage">100%</div>
-            <div class="blackhole_text">TROU NOIR</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BONUS -->
-    <section class="bonus_section" data-animate="up">
-      <div class="bonus_container">
-        <p class="bonus_text" data-animate="left">
-          Take advantage of the various point bonuses.
+      <!-- BLACK HOLE GAME SECTION -->
+      <section class="blackhole_game_section" data-animate="up">
+        <h2 class="section_title">REDUCE THE BLACK HOLE</h2>
+        <p class="blackhole_instruction">
+          Make sure to reduce the size of the black hole by playing. Every click
+          brings us closer to saving the universe!
         </p>
 
-        <div class="bonus_icons">
-          <div class="bonus_icon hover-global" data-animate="up">
-            <div class="icon_circle">
-              <img src="pictures/bonus1.png" />
-            </div>
-          </div>
-
-          <div class="bonus_icon hover-global" data-animate="up">
-            <div class="icon_circle">
-              <img src="pictures/bonus2.png" />
-            </div>
-          </div>
-
-          <div class="bonus_icon hover-global" data-animate="up">
-            <div class="icon_circle">
-              <img src="pictures/bonus3.jpeg" />
+        <div class="blackhole_display">
+          <div class="blackhole_graphic">
+            <img
+              src="pictures/trou_tourne.png"
+              class="blackhole_image"
+              alt="Black hole"
+            />
+            <div class="blackhole_label">
+              <div class="blackhole_percentage">100%</div>
+              <div class="blackhole_text">BLACK HOLE SIZE</div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="bonus_character" data-animate="left">
-          <img src="pictures/optimusprime.png" />
+      <!-- BONUS SECTION -->
+      <section class="bonus_section" data-animate="up">
+        <div class="bonus_container">
+          <h2 class="section_title">POWER BONUSES</h2>
+          <p class="bonus_text" data-animate="left">
+            Take advantage of the various point bonuses to accelerate your
+            progress and save the universe faster!
+          </p>
+
+          <div class="bonus_icons">
+            <div class="bonus_icon hover-global" data-animate="up">
+              <div class="icon_circle">
+                <i class="fas fa-bolt fa-3x"></i>
+              </div>
+              <p class="icon_label">Click Multiplier</p>
+            </div>
+
+            <div class="bonus_icon hover-global" data-animate="up">
+              <div class="icon_circle">
+                <i class="fas fa-rocket fa-3x"></i>
+              </div>
+              <p class="icon_label">Speed Boost</p>
+            </div>
+
+            <div class="bonus_icon hover-global" data-animate="up">
+              <div class="icon_circle">
+                <i class="fas fa-shield-alt fa-3x"></i>
+              </div>
+              <p class="icon_label">Energy Shield</p>
+            </div>
+          </div>
+
+          <p class="bonus_final_message" data-animate="up">
+            <i class="fas fa-star"></i> Enjoy your interstellar adventure!
+            <i class="fas fa-star"></i>
+          </p>
         </div>
+      </section>
 
-        <p class="bonus_final_message" data-animate="up">Enjoy your game!</p>
-      </div>
-    </section>
+      <!-- FOOTER -->
+      <footer class="footer" data-animate="up">
+        <div class="footer_content">
+          <div class="footer_left">
+            <h3 class="footer_section_title">Interstellar Universe</h3>
+            <p class="footer_description">
+              Save the universe one click at a time. Join the interstellar
+              adventure today!
+            </p>
+            <div class="social_icons">
+              <a href="#" class="social_icon hover-global"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social_icon hover-global"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="social_icon hover-global"
+                ><i class="fab fa-discord"></i
+              ></a>
+              <a href="#" class="social_icon hover-global"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
 
+          <div class="footer_middle">
+            <h4 class="footer_section_title">Quick Links</h4>
+            <a href="#" class="footer_link">Home</a>
+            <a href="#" class="footer_link">Heroes</a>
+            <a href="#" class="footer_link">Game Guide</a>
+            <a href="#" class="footer_link">Leaderboard</a>
+          </div>
+
+          <div class="footer_right">
+            <h4 class="footer_section_title">Legal</h4>
+            <a href="#" class="footer_link">Terms of Service</a>
+            <a href="#" class="footer_link">Privacy Policy</a>
+            <a href="#" class="footer_link">Cookie Policy</a>
+            <a href="#" class="footer_link">Contact Us</a>
+          </div>
+        </div>
+        <div class="footer_bottom">
+          <p>
+            &copy; 2024 Interstellar Universe. All rights reserved. | Designed
+            with <i class="fas fa-heart"></i> for space explorers.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- SECTIONS ADDITIONNELLES -->
     <section id="teamSection" class="team_section">
       <div class="about_container">
-        <p class="about_intro"></p>
-      </div>
-    </section>
-
-    <section id="aboutSection" class="about_section">
-      <div class="about_container">
-        <h1 class="about_title">About Us</h1>
+        <h1 class="about_title">Our Team</h1>
         <p class="about_intro">
-          This is the About section. Replace this with your real content.
+          Meet the talented developers behind Interstellar.
         </p>
         <div class="team_cards">
           <div class="team_card">
@@ -239,8 +422,7 @@
               <div class="team_info">
                 <h2 class="team_name">Amir</h2>
                 <p class="team_title">
-                  Développeur Web<br />
-                  Responsable du site vitrine
+                  Développeur Web<br />Responsable du site vitrine
                 </p>
               </div>
             </div>
@@ -254,8 +436,7 @@
               <div class="team_info">
                 <h2 class="team_name">Rabah</h2>
                 <p class="team_title">
-                  Développeur Web<br />
-                  Responsable du site vitrine
+                  Développeur Web<br />Responsable du site vitrine
                 </p>
               </div>
             </div>
@@ -269,8 +450,7 @@
               <div class="team_info">
                 <h2 class="team_name">Hamza</h2>
                 <p class="team_title">
-                  Développeur Jeux<br />
-                  Responsable du jeu Idle
+                  Développeur Jeux<br />Responsable du jeu Idle
                 </p>
               </div>
             </div>
@@ -284,8 +464,7 @@
               <div class="team_info">
                 <h2 class="team_name">Geoffrey</h2>
                 <p class="team_title">
-                  Développeur Jeux<br />
-                  Responsable du jeu Idle
+                  Développeur Jeux<br />Responsable du jeu Idle
                 </p>
               </div>
             </div>
@@ -294,24 +473,16 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer" data-animate="up">
-      <div class="footer_content">
-        <div class="footer_left">
-          <p class="footer_section_title">Suivez-nous sur</p>
-          <div class="social_icons hover-global">
-            <img src="pictures/icons-ig.jpeg" />
-          </div>
-        </div>
-
-        <div class="footer_separator"></div>
-
-        <div class="footer_right">
-          <a href="#" class="footer_link">Conditions d'utilisation</a>
-          <a href="#" class="footer_link">Politique de confidentialité</a>
-        </div>
+    <section id="aboutSection" class="about_section">
+      <div class="about_container">
+        <h1 class="about_title">About Us</h1>
+        <p class="about_intro">
+          Interstellar is an innovative idle game project combining strategic
+          gameplay with stunning visuals. Our mission is to create an engaging
+          experience where players save the universe one click at a time.
+        </p>
       </div>
-    </footer>
+    </section>
 
     <button class="back-to-top" id="backToTop">↑</button>
 

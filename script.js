@@ -1,14 +1,12 @@
 // ===== PLAY BUTTON =====
 const playBtn = document.getElementById("playBtn");
-
 if (playBtn) {
   playBtn.addEventListener("click", () => {
     document.body.style.transition = "0.5s";
     document.body.style.filter = "brightness(3)";
-
     setTimeout(() => {
       document.body.style.filter = "brightness(1)";
-      alert("Game loading...");
+      alert("🚀 Game loading... Prepare for launch!");
     }, 400);
   });
 }
@@ -32,7 +30,6 @@ if (menuClose && menuOverlay) {
   });
 }
 
-// Fermer le menu en cliquant sur l'overlay
 if (menuOverlay) {
   menuOverlay.addEventListener("click", (e) => {
     if (e.target === menuOverlay) {
@@ -48,59 +45,52 @@ const teamSection = document.getElementById("teamSection");
 const aboutSection = document.getElementById("aboutSection");
 const teamButton = document.getElementById("teamButton");
 const aboutButton = document.getElementById("aboutButton");
+const mainContent = document.querySelector(".main-content");
 
-// Main menu
 if (mainMenuButton) {
   mainMenuButton.addEventListener("click", () => {
     menuOverlay.classList.remove("active");
     document.body.style.overflow = "";
-
     document.body.classList.remove("team_active", "about_active");
     teamSection?.classList.remove("active");
     aboutSection?.classList.remove("active");
-
+    mainContent.style.display = "block";
     window.scrollTo(0, 0);
   });
 }
 
-// Team
 if (teamButton && teamSection) {
   teamButton.addEventListener("click", () => {
     menuOverlay.classList.remove("active");
     document.body.style.overflow = "";
-
     document.body.classList.add("team_active");
     teamSection.classList.add("active");
-
+    mainContent.style.display = "none";
     window.scrollTo(0, 0);
   });
 }
 
-// About
 if (aboutButton && aboutSection) {
   aboutButton.addEventListener("click", () => {
     menuOverlay.classList.remove("active");
     document.body.style.overflow = "";
-
     document.body.classList.add("about_active");
     aboutSection.classList.add("active");
-
+    mainContent.style.display = "none";
     window.scrollTo(0, 0);
   });
 }
 
 // ===== BACK TO HOME (LOGO) =====
 const logoBox = document.querySelector(".logo_box");
-
 if (logoBox) {
   logoBox.addEventListener("click", () => {
     document.body.classList.remove("team_active", "about_active");
     teamSection?.classList.remove("active");
     aboutSection?.classList.remove("active");
+    mainContent.style.display = "block";
     window.scrollTo(0, 0);
   });
-
-  logoBox.style.cursor = "pointer";
 }
 
 // ===== HEADER HIDE / SHOW ON SCROLL =====
@@ -109,22 +99,16 @@ let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
-
-  // Scroll vers le bas → cacher
   if (currentScrollY > lastScrollY && currentScrollY > 100) {
     navbar.classList.add("hide");
-  }
-  // Scroll vers le haut → afficher
-  else {
+  } else {
     navbar.classList.remove("hide");
   }
-
   lastScrollY = currentScrollY;
 });
 
 // ===== GLOBAL SCROLL ANIMATIONS =====
 const animatedItems = document.querySelectorAll("[data-animate]");
-
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -141,18 +125,15 @@ animatedItems.forEach((el) => observer.observe(el));
 
 // ===== SCROLL PROGRESS =====
 const progressBar = document.querySelector(".scroll-progress");
-
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-
   const scrollPercent = (scrollTop / docHeight) * 100;
   progressBar.style.width = `${scrollPercent}%`;
 });
 
 // ===== BACK TO TOP =====
 const backToTop = document.getElementById("backToTop");
-
 window.addEventListener("scroll", () => {
   if (window.scrollY > 400) {
     backToTop.classList.add("show");
@@ -162,27 +143,35 @@ window.addEventListener("scroll", () => {
 });
 
 backToTop.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// ===== CURSOR GLOW FOLLOW =====
+// ===== CURSOR GLOW =====
 const glow = document.querySelector(".cursor-glow");
-
 document.addEventListener("mousemove", (e) => {
   glow.style.left = `${e.clientX}px`;
   glow.style.top = `${e.clientY}px`;
 });
 
+// Ajuster la taille du glow au clic
+document.addEventListener("mousedown", () => {
+  glow.style.width = "100px";
+  glow.style.height = "100px";
+});
+
+document.addEventListener("mouseup", () => {
+  glow.style.width = "160px";
+  glow.style.height = "160px";
+});
+
+// ===== BLACK HOLE ANIMATION FUNCTION =====
 function blackhole(element) {
   const container = document.querySelector(element);
   const h = container.offsetHeight;
   const w = container.offsetWidth;
   const cw = w;
   const ch = h;
-  const maxorbit = 255; // distance from center
+  const maxorbit = 255;
   const centery = ch / 2;
   const centerx = cw / 2;
 
@@ -190,9 +179,9 @@ function blackhole(element) {
   let currentTime = 0;
 
   const stars = [];
-  let collapse = false; // if hovered
-  let expanse = false; // if clicked
-  let returning = false; // if particles are returning to orbit
+  let collapse = false;
+  let expanse = false;
+  let returning = false;
 
   // Create canvas
   const canvas = document.createElement("canvas");
@@ -204,7 +193,6 @@ function blackhole(element) {
   context.globalCompositeOperation = "multiply";
 
   function setDPI(canvas, dpi) {
-    // Set up CSS size if it's not set up already
     if (!canvas.style.width) canvas.style.width = canvas.width + "px";
     if (!canvas.style.height) canvas.style.height = canvas.height + "px";
 
@@ -228,42 +216,38 @@ function blackhole(element) {
 
   class Star {
     constructor() {
-      // Get a weighted random number, so that the majority of stars will form in the center of the orbit
       const rands = [];
       rands.push(Math.random() * (maxorbit / 2) + 1);
       rands.push(Math.random() * (maxorbit / 2) + maxorbit);
 
       this.orbital = rands.reduce((p, c) => p + c, 0) / rands.length;
 
-      this.x = centerx; // All of these stars are at the center x position at all times
-      this.y = centery + this.orbital; // Set Y position starting at the center y + the position in the orbit
+      this.x = centerx;
+      this.y = centery + this.orbital;
+      this.yOrigin = centery + this.orbital;
 
-      this.yOrigin = centery + this.orbital; // this is used to track the particles origin
-
-      this.speed = ((Math.floor(Math.random() * 2.5) + 1.5) * Math.PI) / 180; // The rate at which this star will orbit
-      this.rotation = 0; // current Rotation
+      this.speed = ((Math.floor(Math.random() * 2.5) + 1.5) * Math.PI) / 180;
+      this.rotation = 0;
       this.startRotation =
-        ((Math.floor(Math.random() * 360) + 1) * Math.PI) / 180; // Starting rotation
+        ((Math.floor(Math.random() * 360) + 1) * Math.PI) / 180;
 
-      this.id = stars.length; // This will be used when expansion takes place
+      this.id = stars.length;
 
-      this.collapseBonus = this.orbital - maxorbit * 0.7; // This "bonus" is used to randomly place some stars outside of the blackhole on hover
+      this.collapseBonus = this.orbital - maxorbit * 0.7;
       if (this.collapseBonus < 0) {
-        // if the collapse "bonus" is negative
-        this.collapseBonus = 0; // set it to 0, this way no stars will go inside the blackhole
+        this.collapseBonus = 0;
       }
 
-      this.color = "rgba(255,255,255," + (1 - this.orbital / 255) + ")"; // Color the star white, but make it more transparent the further out it is generated
+      this.color = "rgba(255, 255, 255," + (1 - this.orbital / 255) + ")";
 
-      this.hoverPos = centery + maxorbit / 2 + this.collapseBonus; // Where the star will go on hover of the blackhole
+      this.hoverPos = centery + maxorbit / 2 + this.collapseBonus;
       this.expansePos =
-        centery + (this.id % 100) * -10 + (Math.floor(Math.random() * 20) + 1); // Where the star will go when expansion takes place
+        centery + (this.id % 100) * -10 + (Math.floor(Math.random() * 20) + 1);
 
       this.prevR = this.startRotation;
       this.prevX = this.x;
       this.prevY = this.y;
 
-      // Store original position for returning
       this.originalY = this.yOrigin;
 
       stars.push(this);
@@ -273,7 +257,6 @@ function blackhole(element) {
       if (!expanse && !returning) {
         this.rotation = this.startRotation + currentTime * this.speed;
         if (!collapse) {
-          // not hovered
           if (this.y > this.yOrigin) {
             this.y -= 2.5;
           }
@@ -281,7 +264,6 @@ function blackhole(element) {
             this.y += (this.yOrigin - this.y) / 10;
           }
         } else {
-          // on hover
           this.trail = 1;
           if (this.y > this.hoverPos) {
             this.y -= (this.hoverPos - this.y) / -5;
@@ -293,13 +275,12 @@ function blackhole(element) {
       } else if (expanse && !returning) {
         this.rotation = this.startRotation + currentTime * (this.speed / 2);
         if (this.y > this.expansePos) {
-          this.y -= Math.floor(this.expansePos - this.y) / -80; // Slower expansion for better visibility
+          this.y -= Math.floor(this.expansePos - this.y) / -80;
         }
       } else if (returning) {
-        // Returning to original orbit slowly
         this.rotation = this.startRotation + currentTime * this.speed;
         if (Math.abs(this.y - this.originalY) > 2) {
-          this.y += (this.originalY - this.y) / 50; // Much slower return
+          this.y += (this.originalY - this.y) / 50;
         } else {
           this.y = this.originalY;
           this.yOrigin = this.originalY;
@@ -331,7 +312,7 @@ function blackhole(element) {
     }
   }
 
-  // Event listeners
+  // Event listeners pour le centre du blackhole
   const centerHover = document.querySelector(".centerHover");
 
   centerHover.addEventListener("click", function () {
@@ -340,7 +321,10 @@ function blackhole(element) {
     returning = false;
     this.classList.add("open");
 
-    // Start the return cycle after full expansion (20-30 seconds)
+    // Lancer la séquence de disparition avec animation de montée du contenu
+    startContentReveal();
+
+    // Start the return cycle after full expansion
     setTimeout(() => {
       expanse = false;
       returning = true;
@@ -349,8 +333,8 @@ function blackhole(element) {
       setTimeout(() => {
         returning = false;
         this.classList.remove("open");
-      }, 8000); // 8 seconds to return slowly
-    }, 25000); // 25 seconds of expansion experience
+      }, 8000);
+    }, 25000);
   });
 
   centerHover.addEventListener("mouseover", function () {
@@ -374,9 +358,8 @@ function blackhole(element) {
     context.fillRect(0, 0, cw, ch);
 
     for (let i = 0; i < stars.length; i++) {
-      // For each star
       if (stars[i] !== undefined) {
-        stars[i].draw(); // Draw it
+        stars[i].draw();
       }
     }
 
@@ -388,7 +371,6 @@ function blackhole(element) {
     context.fillRect(0, 0, cw, ch);
 
     for (let i = 0; i < 2500; i++) {
-      // create 2500 stars
       new Star();
     }
     loop();
@@ -397,71 +379,541 @@ function blackhole(element) {
   init();
 }
 
-// Initialize when DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
-  blackhole("#blackhole");
-});
+// ===== ANIMATION DE RÉVÉLATION DU CONTENU AMÉLIORÉE =====
+function startContentReveal() {
+  console.log("🚀 Début de la séquence de révélation du contenu...");
 
-// Animate Text
+  // 1. Faire disparaître le texte d'introduction
+  const txt = document.querySelector("#txt");
+  if (txt) {
+    const spans = txt.querySelectorAll("span");
+    spans.forEach((span, index) => {
+      span.style.transition = `opacity 0.5s ease ${
+        index * 0.05
+      }s, transform 0.5s ease ${index * 0.05}s`;
+      span.style.opacity = "0";
+      span.style.transform = "translateY(-20px)";
+    });
+
+    setTimeout(() => {
+      txt.style.display = "none";
+    }, 1000);
+  }
+
+  // 2. Faire disparaître le bouton ENTER
+  const centerHover = document.querySelector(".centerHover");
+  if (centerHover) {
+    centerHover.style.transition = "all 1s cubic-bezier(0.34, 1.56, 0.64, 1)";
+    centerHover.style.opacity = "0";
+    centerHover.style.transform =
+      "translate(-50%, -50%) scale(0.3) rotate(180deg)";
+    centerHover.style.pointerEvents = "none";
+  }
+
+  // 3. Créer une animation d'explosion spectaculaire
+  createBlackholeExplosion();
+
+  // 4. Message de transition
+  setTimeout(() => {
+    showTransitionMessages();
+  }, 1000);
+}
+
+// ===== ANIMATION D'EXPLOSION DU BLACKHOLE =====
+function createBlackholeExplosion() {
+  const blackholeElement = document.querySelector("#blackhole");
+  if (!blackholeElement) return;
+
+  // Ajouter un effet de shake au blackhole
+  blackholeElement.style.animation = "shake 0.5s ease-in-out infinite";
+
+  // Créer un overlay pour l'explosion
+  const explosionOverlay = document.createElement("div");
+  explosionOverlay.id = "explosionOverlay";
+  explosionOverlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 9990;
+    opacity: 0;
+    pointer-events: none;
+  `;
+  document.body.appendChild(explosionOverlay);
+
+  // Créer l'effet d'explosion
+  const explosionEffect = document.createElement("div");
+  explosionEffect.id = "explosionEffect";
+  explosionEffect.style.cssText = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,0,0,0.8) 30%, rgba(0,0,0,0) 70%);
+    z-index: 9991;
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(0px);
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.8);
+  `;
+  document.body.appendChild(explosionEffect);
+
+  // Créer des particules d'explosion
+  createExplosionParticles();
+
+  // Animation de l'explosion
+  setTimeout(() => {
+    // 1. Augmenter l'opacité de l'overlay
+    explosionOverlay.style.transition = "opacity 0.5s ease";
+    explosionOverlay.style.opacity = "0.8";
+
+    // 2. Premier flash
+    explosionEffect.style.transition = "all 0.2s ease";
+    explosionEffect.style.opacity = "1";
+    explosionEffect.style.width = "100px";
+    explosionEffect.style.height = "100px";
+
+    setTimeout(() => {
+      // 3. Expansion rapide
+      explosionEffect.style.transition =
+        "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)";
+      explosionEffect.style.width = "300px";
+      explosionEffect.style.height = "300px";
+      explosionEffect.style.filter = "blur(10px)";
+      explosionEffect.style.background =
+        "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,100,0,0.8) 20%, rgba(0,0,0,0) 60%)";
+
+      // 4. Sonnerie de vibration pour l'explosion
+      document.body.style.animation = "shakeHard 0.3s ease-in-out";
+
+      setTimeout(() => {
+        // 5. Grande explosion
+        explosionEffect.style.transition =
+          "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        explosionEffect.style.width = "1500px";
+        explosionEffect.style.height = "1500px";
+        explosionEffect.style.opacity = "0.9";
+        explosionEffect.style.filter = "blur(30px) brightness(2)";
+        explosionEffect.style.background =
+          "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,0,100,0.9) 15%, rgba(100,0,255,0.7) 30%, rgba(0,0,0,0) 70%)";
+
+        // 6. Effet de vague d'énergie
+        createEnergyWave();
+
+        setTimeout(() => {
+          // 7. Disparition de l'explosion
+          explosionEffect.style.transition = "all 1s ease";
+          explosionEffect.style.opacity = "0";
+          explosionEffect.style.filter = "blur(50px) brightness(3)";
+
+          // 8. Fade out de l'overlay
+          explosionOverlay.style.transition = "opacity 1s ease";
+          explosionOverlay.style.opacity = "0";
+
+          // 9. Arrêter le shake du blackhole
+          blackholeElement.style.animation = "";
+
+          // 10. Faire disparaître le blackhole
+          blackholeElement.style.transition = "all 1s ease";
+          blackholeElement.style.opacity = "0";
+          blackholeElement.style.transform = "scale(0.1)";
+          blackholeElement.style.filter = "blur(40px)";
+
+          // 11. Supprimer les éléments d'explosion
+          setTimeout(() => {
+            explosionEffect.remove();
+            explosionOverlay.remove();
+            document.body.style.animation = "";
+
+            // Réinitialiser le blackhole pour un effet visuel
+            blackholeElement.style.opacity = "0";
+            blackholeElement.style.display = "none";
+          }, 1000);
+        }, 500); // Délai avant disparition
+      }, 300); // Délai avant grande explosion
+    }, 200); // Délai avant expansion
+  }, 500); // Délai initial
+}
+
+// ===== CRÉER DES PARTICULES D'EXPLOSION =====
+function createExplosionParticles() {
+  const particleCount = 100;
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement("div");
+    particle.className = "explosion-particle";
+
+    // Taille aléatoire
+    const size = Math.random() * 20 + 5;
+
+    // Couleur aléatoire (rouge, orange, jaune, bleu)
+    const colors = [
+      "rgba(255, 50, 50, 0.9)",
+      "rgba(255, 150, 50, 0.9)",
+      "rgba(255, 255, 50, 0.9)",
+      "rgba(50, 150, 255, 0.9)",
+    ];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+
+    // Position initiale (centre)
+    const startX = 50;
+    const startY = 50;
+
+    // Direction aléatoire
+    const angle = Math.random() * Math.PI * 2;
+    const distance = Math.random() * 100 + 50;
+    const endX = startX + Math.cos(angle) * distance;
+    const endY = startY + Math.sin(angle) * distance;
+
+    // Durée aléatoire
+    const duration = Math.random() * 1 + 0.5;
+
+    particle.style.cssText = `
+      position: fixed;
+      top: ${startY}vh;
+      left: ${startX}vw;
+      width: ${size}px;
+      height: ${size}px;
+      background: ${color};
+      border-radius: 50%;
+      z-index: 9992;
+      pointer-events: none;
+      opacity: 0;
+      box-shadow: 0 0 ${size}px ${color};
+      transform: translate(-50%, -50%);
+      animation: particleExplode ${duration}s ease-out forwards;
+    `;
+
+    document.body.appendChild(particle);
+
+    // Position finale
+    particle.style.setProperty("--end-x", `${endX}vw`);
+    particle.style.setProperty("--end-y", `${endY}vh`);
+
+    // Supprimer la particule après l'animation
+    setTimeout(() => {
+      particle.remove();
+    }, duration * 1000);
+  }
+}
+
+// ===== CRÉER UNE VAGUE D'ÉNERGIE =====
+function createEnergyWave() {
+  const wave = document.createElement("div");
+  wave.id = "energyWave";
+
+  wave.style.cssText = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 204, 255, 0.8);
+    z-index: 9993;
+    pointer-events: none;
+    opacity: 0.8;
+    box-shadow: 0 0 50px rgba(0, 204, 255, 0.5);
+    animation: energyWave 1.5s ease-out forwards;
+  `;
+
+  document.body.appendChild(wave);
+
+  setTimeout(() => {
+    wave.remove();
+  }, 1500);
+}
+
+// ===== MESSAGES DE TRANSITION =====
+function showTransitionMessages() {
+  const transitionMessage = document.createElement("div");
+  transitionMessage.id = "transitionMessage";
+  transitionMessage.style.cssText = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #00ccff;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 9999;
+    opacity: 0;
+    text-shadow: 0 0 25px rgba(0, 204, 255, 0.8);
+    letter-spacing: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+  `;
+  document.body.appendChild(transitionMessage);
+
+  // Séquence d'animations
+  setTimeout(() => {
+    // Premier message
+    transitionMessage.textContent = "WARP DRIVE ACTIVATED";
+    transitionMessage.style.transition = "opacity 0.8s ease";
+    transitionMessage.style.opacity = "1";
+
+    setTimeout(() => {
+      // Fade out
+      transitionMessage.style.opacity = "0";
+
+      setTimeout(() => {
+        // Deuxième message
+        transitionMessage.textContent = "ENTERING INTERSTELLAR SPACE";
+        transitionMessage.style.color = "#ff3366";
+        transitionMessage.style.opacity = "1";
+
+        setTimeout(() => {
+          // Fade out
+          transitionMessage.style.opacity = "0";
+
+          setTimeout(() => {
+            // Troisième message
+            transitionMessage.textContent = "UNIVERSE UNLOCKED";
+            transitionMessage.style.color = "#ffcc00";
+            transitionMessage.style.opacity = "1";
+
+            setTimeout(() => {
+              // Fade out
+              transitionMessage.style.opacity = "0";
+
+              setTimeout(() => {
+                transitionMessage.remove();
+
+                // RÉVÉLER LE CONTENU PRINCIPAL
+                revealMainContent();
+              }, 1000); // Délai avant de supprimer
+            }, 1500); // Temps d'affichage
+          }, 500); // Délai avant 3ème message
+        }, 1500); // Temps d'affichage
+      }, 500); // Délai avant 2ème message
+    }, 1500); // Temps d'affichage
+  }, 1000); // Délai initial
+}
+
+// ===== RÉVÉLER LE CONTENU PRINCIPAL =====
+function revealMainContent() {
+  const mainContent = document.querySelector(".main-content");
+  if (mainContent) {
+    mainContent.classList.add("visible");
+    mainContent.style.display = "block";
+
+    // Animation d'entrée des sections
+    const sections = mainContent.querySelectorAll("section");
+    sections.forEach((section, index) => {
+      section.style.opacity = "0";
+      section.style.transform = "translateY(60px)";
+      section.style.transition = `all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) ${
+        index * 0.15
+      }s`;
+
+      setTimeout(() => {
+        section.style.opacity = "1";
+        section.style.transform = "translateY(0)";
+      }, 100 + index * 150);
+    });
+
+    // Défilement automatique vers le contenu
+    setTimeout(() => {
+      mainContent.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 500);
+  }
+
+  console.log("✅ Contenu révélé avec succès !");
+}
+
+// ===== ANIMATE TEXT =====
 document.addEventListener("DOMContentLoaded", () => {
   const txtElement = document.querySelector("#txt");
-  const textContent = txtElement.textContent;
-  const animateText = () => {
-    txtElement.textContent = "";
-    textContent.split("").forEach((char, index) => {
-      const span = document.createElement("span");
-      span.textContent = char === " " ? "\u00A0" : char;
-      span.style.animationDelay = index * 0.1 + "s";
-      txtElement.appendChild(span);
-    });
-  };
-  animateText();
-  txtElement.addEventListener("click", animateText);
+  if (txtElement) {
+    const textContent = txtElement.textContent;
+    const animateText = () => {
+      txtElement.textContent = "";
+      textContent.split("").forEach((char, index) => {
+        const span = document.createElement("span");
+        span.textContent = char === " " ? "\u00A0" : char;
+        span.style.animationDelay = index * 0.1 + "s";
+        txtElement.appendChild(span);
+      });
+    };
+    animateText();
+    txtElement.addEventListener("click", animateText);
+  }
+
+  // Initialize blackhole animation
+  blackhole("#blackhole");
+
+  // Setup interactive explosion
+  setupInteractiveBlackhole();
 });
 
-// ===== DISPARITION DU TEXTE (votre code existant) =====
+// ===== EXPLOSION INTERACTIVE DU BLACKHOLE =====
+function setupInteractiveBlackhole() {
+  const blackholeCanvas = document.querySelector("#blackhole canvas");
+  const centerHover = document.querySelector(".centerHover");
+
+  if (blackholeCanvas && centerHover) {
+    // Remplacer l'ancien événement par une meilleure version
+    centerHover.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      console.log("💥 Déclenchement de l'explosion du blackhole !");
+
+      // Empêcher les clics multiples
+      this.style.pointerEvents = "none";
+
+      // Animation du bouton ENTER
+      this.style.transition = "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)";
+      this.style.opacity = "0";
+      this.style.transform = "translate(-50%, -50%) scale(0.2) rotate(360deg)";
+
+      // Lancer l'explosion améliorée
+      enhancedBlackholeExplosion();
+    });
+  }
+}
+
+// ===== EXPLOSION AMÉLIORÉE =====
+function enhancedBlackholeExplosion() {
+  // 1. Créer un effet de flash initial
+  const flash = document.createElement("div");
+  flash.className = "flash-effect";
+  document.body.appendChild(flash);
+
+  setTimeout(() => {
+    flash.remove();
+  }, 100);
+
+  // 2. Effet de distorsion sur tout le body
+  document.body.classList.add("distort-effect");
+  setTimeout(() => {
+    document.body.classList.remove("distort-effect");
+  }, 300);
+
+  // 3. Créer des lumières stroboscopiques
+  const strobe = document.createElement("div");
+  strobe.className = "strobe-light";
+  document.body.appendChild(strobe);
+
+  // 4. Créer plusieurs vagues concentriques
+  for (let i = 0; i < 3; i++) {
+    setTimeout(() => {
+      const wave = document.createElement("div");
+      wave.className = "concentric-wave";
+      wave.style.borderColor =
+        i === 0
+          ? "rgba(255, 51, 102, 0.6)"
+          : i === 1
+          ? "rgba(0, 204, 255, 0.6)"
+          : "rgba(255, 204, 0, 0.6)";
+      document.body.appendChild(wave);
+
+      setTimeout(() => {
+        wave.remove();
+      }, 1500);
+    }, i * 200);
+  }
+
+  // 5. Animation principale de l'explosion
+  setTimeout(() => {
+    createBlackholeExplosion();
+
+    // 6. Lancer les messages et révéler le contenu
+    setTimeout(() => {
+      strobe.remove();
+      showTransitionMessages();
+    }, 2500);
+  }, 500);
+}
+
+// ===== DISPARITION DU TEXTE APRÈS QUELQUES SECONDES =====
 setTimeout(() => {
   const txt = document.querySelector("#txt");
   if (txt) {
-    txt.style.transition = "opacity 1s ease";
-    txt.style.opacity = "0";
+    txt.style.transition = "opacity 1.5s ease";
+    txt.style.opacity = "0.5";
 
     setTimeout(() => {
-      txt.remove();
+      txt.style.opacity = "0";
+      setTimeout(() => {
+        txt.style.display = "none";
+      }, 1000);
     }, 1000);
   }
-}, 2800);
+}, 5000);
 
-// ===== DISPARITION SÉQUENTIELLE CENTERHOVER → BLACKHOLE =====
-document.querySelectorAll(".centerHover").forEach((element) => {
-  element.addEventListener("click", function () {
-    console.log("Clic sur centerHover - début de la séquence");
+// ===== HERO BUY BUTTONS =====
+document
+  .querySelectorAll(".hero_buy_btn:not(.unavailable)")
+  .forEach((button) => {
+    button.addEventListener("click", function () {
+      const heroCard = this.closest(".hero_card");
+      const heroName = heroCard.querySelector(".hero_name").textContent;
+      const heroPrice = heroCard.querySelector(".hero_price").textContent;
 
-    // 1. Faire disparaître centerHover
-    this.style.transition = "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
-    this.style.opacity = "0";
-    this.style.transform = "scale(0.7) translateY(-10px)";
-    this.style.pointerEvents = "none";
+      // Animation d'achat
+      this.textContent = "PURCHASING...";
+      this.style.background = "#ffcc00";
+      this.style.color = "#000";
 
-    // 2. Après 0.5s, commencer à cacher blackhole
-    setTimeout(() => {
-      const blackhole = document.querySelector("#blackhole");
-      if (blackhole) {
-        console.log("Début de la disparition de blackhole");
+      setTimeout(() => {
+        this.textContent = "PURCHASED!";
+        this.style.background = "#00ff00";
+        this.style.color = "#000";
+        this.disabled = true;
 
-        // Animation plus dramatique pour blackhole
-        blackhole.style.transition =
-          "all 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)";
-        blackhole.style.opacity = "0";
-        blackhole.style.transform = "scale(0.5)";
-        blackhole.style.filter = "blur(30px) brightness(0.8)";
-
-        // 3. Optionnel: supprimer complètement
-        setTimeout(() => {
-          blackhole.style.display = "none";
-          console.log("Blackhole complètement caché");
-        }, 1200);
-      }
-    }, 2500); // Délai avant de commencer à cacher blackhole
+        // Notification
+        alert(
+          `🎉 Congratulations! You've unlocked ${heroName} for ${heroPrice}!`
+        );
+      }, 1500);
+    });
   });
-});
+
+// ===== BLACK HOLE CLICK INTERACTION =====
+const blackholeImage = document.querySelector(".blackhole_image");
+if (blackholeImage) {
+  let blackholeSize = 100;
+
+  blackholeImage.addEventListener("click", () => {
+    // Réduire la taille du blackhole
+    blackholeSize = Math.max(0, blackholeSize - 5);
+
+    // Mettre à jour l'affichage
+    const percentageElement = document.querySelector(".blackhole_percentage");
+    if (percentageElement) {
+      percentageElement.textContent = `${blackholeSize}%`;
+
+      // Animation de réduction
+      blackholeImage.style.transform = `translate(-50%, -50%) scale(${
+        blackholeSize / 100
+      })`;
+
+      // Si le blackhole est détruit
+      if (blackholeSize <= 0) {
+        setTimeout(() => {
+          alert(
+            "🌌 CONGRATULATIONS! You've successfully destroyed the black hole and saved the universe!"
+          );
+
+          // Réinitialiser après 5 secondes
+          setTimeout(() => {
+            blackholeSize = 100;
+            percentageElement.textContent = "100%";
+            blackholeImage.style.transform = "translate(-50%, -50%) scale(1)";
+          }, 5000);
+        }, 500);
+      }
+    }
+  });
+}
