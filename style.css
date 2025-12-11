@@ -2244,7 +2244,7 @@ body.about_active .main-content {
   transition: opacity 1s ease;
 }
 
-/* Animation de montée du contenu */
+/* Content rise animation */
 .main-content {
   opacity: 0;
   transform: translateY(100vh);
@@ -2256,7 +2256,7 @@ body.about_active .main-content {
   transform: translateY(0);
 }
 
-/* ===== ANIMATIONS D'EXPLOSION ===== */
+/* EXPLOSION ANIMATIONS */
 @keyframes shake {
   0%,
   100% {
